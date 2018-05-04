@@ -79,4 +79,8 @@ _sections_unfolded = [ "Transform" ]
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
+[connection signal="body_entered" from="light/area" to="." method="_on_area_body_entered"]
+
+[connection signal="body_exited" from="light/area" to="." method="_on_area_body_exited"]
+
 

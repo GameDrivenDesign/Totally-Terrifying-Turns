@@ -15,12 +15,12 @@ func _ready():
 	path_length = get_parent().get_parent().curve.get_baked_length()
 	followed_player = get_node(followed_player_path)
 	#time_to_follow = 20.0
-	var players = get_tree().get_nodes_in_group("players")
-	for p in players:
-		p.connect("", self, "")
 
-func _onEnter():
-	print("enter")
+func on_entered_light(player):
+	print("entered")
+	
+func on_exited_light(player):
+	print("exited")
 
 func _physics_process(delta):
 	#print(followed_player.position)

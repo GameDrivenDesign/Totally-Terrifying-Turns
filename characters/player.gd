@@ -30,4 +30,13 @@ func _process(delta):
 	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
-	
+
+
+func _on_area_body_entered(body):
+	if body.is_in_group("enemy_collider"):
+		body.on_entered_light(get_parent().get_parent())
+
+
+func _on_area_body_exited(body):
+	if body.is_in_group("enemy_collider"):
+		body.on_exited_light(get_parent().get_parent())
