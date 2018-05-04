@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://characters/enemy.gd" type="Script" id=1]
+[ext_resource path="res://characters/hugger.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 radius = 4.71644
 
-[node name="enemy" type="PathFollow2D"]
+[node name="hugger" type="PathFollow2D" index="0"]
 
 position = Vector2( 22.5455, 5.84727 )
 rotation = -0.0012698
@@ -22,7 +22,7 @@ lookahead = 4.0
 _sections_unfolded = [ "Transform" ]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." index="0" groups=[
-"enemy_collider",
+"enemy_flashlight_collider",
 ]]
 
 input_pickable = false

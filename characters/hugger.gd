@@ -22,15 +22,12 @@ var time_to_follow = 0.0
 func _ready():
 	set_physics_process(true)
 	path_length = get_parent().get_parent().curve.get_baked_length()
-	#time_to_follow = 20.0
 
 func on_entered_light(player):
-	print("entered")
 	followed_player = player
 	enemy_state = ENEMY_STATE.following_in_light
 	
 func on_exited_light(player):
-	print("exited")
 	followed_player = player
 	enemy_state = ENEMY_STATE.following_out_of_light
 	time_to_follow = MAX_TIME_TO_FOLLOW

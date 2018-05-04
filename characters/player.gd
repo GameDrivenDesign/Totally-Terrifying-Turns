@@ -23,12 +23,11 @@ func _process(delta):
 	var distance = speed * delta * direction
 	move_and_collide(distance)
 
-
-func _on_area_body_entered(body):
-	if body.is_in_group("enemy_collider"):
+func _on_flashlight_area_body_entered(body):
+	if body.is_in_group("enemy_flashlight_collider"):
 		body.on_entered_light(self)
 
 
-func _on_area_body_exited(body):
-	if body.is_in_group("enemy_collider"):
+func _on_flashlight_area_body_exited(body):
+	if body.is_in_group("enemy_flashlight_collider"):
 		body.on_exited_light(self)
