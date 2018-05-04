@@ -14,7 +14,7 @@ extents = Vector2( 28.8448, 29.0007 )
 custom_solver_bias = 0.0
 points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -79,5 +79,9 @@ _sections_unfolded = [ "Transform" ]
 
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
+
+[connection signal="body_entered" from="Flashlight/Area2D" to="." method="_on_area_body_entered"]
+
+[connection signal="body_exited" from="Flashlight/Area2D" to="." method="_on_area_body_exited"]
 
 

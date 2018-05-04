@@ -34,9 +34,9 @@ func _process(delta):
 
 func _on_area_body_entered(body):
 	if body.is_in_group("enemy_collider"):
-		body.on_entered_light(get_parent().get_parent())
+		body.on_entered_light(self)
 
 
 func _on_area_body_exited(body):
 	if body.is_in_group("enemy_collider"):
-		body.on_exited_light(get_parent().get_parent())
+		body.on_exited_light(self)
