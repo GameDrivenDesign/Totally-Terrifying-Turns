@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 28.8448, 29.0007 )
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -23,7 +23,7 @@ position = Vector2( 0.194221, 0.0780315 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="sprite" type="Sprite" parent="." index="1"]
 
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
