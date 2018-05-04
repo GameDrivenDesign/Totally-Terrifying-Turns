@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/S31-Sewer Nightclub.ogg-1871d545006b94287a850aa482401804.oggstr"
+
+[deps]
+
+source_file="res://music/S31-Sewer Nightclub.ogg"
+source_md5="47bbbe3316507d6eddce66029956e9c1"
+
+dest_files=[ "res://.import/S31-Sewer Nightclub.ogg-1871d545006b94287a850aa482401804.oggstr" ]
+dest_md5="de47f8bd12e09ba3a913b59d900f2c85"
+
+[params]
+
+loop=true
+loop_offset=0

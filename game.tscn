@@ -6,6 +6,7 @@
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://characters/hugger/hugger.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/angel/angel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://music.gd" type="Script" id=8]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -58,6 +59,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="maze" type="TileMap" parent="." index="2"]
 
+editor/display_folded = true
 mode = 0
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
@@ -90,6 +92,7 @@ scale = Vector2( 0.8, 0.8 )
 
 [node name="Path2D2" type="Path2D" parent="." index="4"]
 
+editor/display_folded = true
 curve = SubResource( 1 )
 
 [node name="enemy" parent="Path2D2" index="0" instance=ExtResource( 5 )]
@@ -99,6 +102,7 @@ rotation = 1.48989
 
 [node name="Path2D" type="Path2D" parent="." index="5"]
 
+editor/display_folded = true
 curve = SubResource( 2 )
 
 [node name="enemy" parent="Path2D" index="0" instance=ExtResource( 5 )]
@@ -109,5 +113,14 @@ rotation = 3.14159
 [node name="KinematicBody2D" parent="." index="6" instance=ExtResource( 6 )]
 
 position = Vector2( 27.3752, 134.703 )
+
+[node name="music" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+script = ExtResource( 8 )
 
 
