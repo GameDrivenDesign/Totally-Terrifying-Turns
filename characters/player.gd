@@ -1,13 +1,8 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 export (float, 0, 100, 0.1) var speed = 40
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	pass
 
 func _process(delta):
@@ -27,16 +22,13 @@ func _process(delta):
 		
 	var distance = speed * delta * direction
 	move_and_collide(distance)
-	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
 
 
 func _on_area_body_entered(body):
 	if body.is_in_group("enemy_collider"):
-		body.on_entered_light(get_parent().get_parent())
+		body.on_entered_light(self)
 
 
 func _on_area_body_exited(body):
 	if body.is_in_group("enemy_collider"):
-		body.on_exited_light(get_parent().get_parent())
+		body.on_exited_light(self)
