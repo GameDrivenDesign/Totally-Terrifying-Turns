@@ -27,6 +27,7 @@ script = ExtResource( 1 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="0"]
 
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="1"]
@@ -108,6 +109,6 @@ rotation = 3.14159
 
 [node name="KinematicBody2D" parent="." index="6" instance=ExtResource( 6 )]
 
-position = Vector2( 125.083, 7.50686 )
+position = Vector2( 27.3752, 134.703 )
 
 

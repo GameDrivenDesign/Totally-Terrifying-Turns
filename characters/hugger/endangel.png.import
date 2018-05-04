@@ -10,7 +10,7 @@ source_file="res://characters/hugger/endangel.png"
 source_md5="21d524383b6205ae2bd4872e5f61e452"
 
 dest_files=[ "res://.import/endangel.png-477a0dd3fcceddf14ddee3b4050800fd.stex" ]
-dest_md5="c97a09a8200b385b52943a9367c4bd6d"
+dest_md5="3275608449ea75ec4acef3135a1f094d"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

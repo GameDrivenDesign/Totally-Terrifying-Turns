@@ -10,7 +10,7 @@ source_file="res://characters/player/player.png"
 source_md5="0daeba520eebf1431b46772cb5185e44"
 
 dest_files=[ "res://.import/player.png-a8fc4065ed304166a5922989fd4ac3ed.stex" ]
-dest_md5="0c3f32974806833d75ae25cd73668120"
+dest_md5="a0c676b1dbd3b837b0246e0eef0e7a8b"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

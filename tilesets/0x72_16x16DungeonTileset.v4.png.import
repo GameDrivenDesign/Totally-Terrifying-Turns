@@ -10,7 +10,7 @@ source_file="res://tilesets/0x72_16x16DungeonTileset.v4.png"
 source_md5="ecf45c8f046cac83fa351cf572f054a0"
 
 dest_files=[ "res://.import/0x72_16x16DungeonTileset.v4.png-9af81c790cab6cd869d626c40c72639c.stex" ]
-dest_md5="4ce27e5c92fc146beba80f1e564e13e3"
+dest_md5="b37018a972532d5c51d92ffca10e999c"
 
 [params]
 
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
