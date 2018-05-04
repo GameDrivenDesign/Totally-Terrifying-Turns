@@ -5,21 +5,21 @@
 [ext_resource path="res://characters/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/enemy.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=1]
 
 bake_interval = 5.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 71.1592, 119.895, 0, 0, 0, 0, 72.4796, 136.179, 0, 0, 0, 0, 137.178, 137.94 )
 }
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id=2]
 
 bake_interval = 5.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 37.2696, 41.9925, 0, 0, 0, 0, 24.5059, 41.9925, 0, 0, 0, 0, 24.0658, 86.4451, 0, 0, 0, 0, 72.4796, 88.2056 )
 }
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -53,7 +53,7 @@ scale = Vector2( 0.159774, 0.139001 )
 
 [node name="Path2D2" type="Path2D" parent="." index="2"]
 
-curve = SubResource( 2 )
+curve = SubResource( 1 )
 
 [node name="enemy" parent="Path2D2" index="0" instance=ExtResource( 4 )]
 
@@ -62,7 +62,7 @@ rotation = 1.48989
 
 [node name="Path2D" type="Path2D" parent="." index="3"]
 
-curve = SubResource( 1 )
+curve = SubResource( 2 )
 
 [node name="enemy" parent="Path2D" index="0" instance=ExtResource( 4 )]
 
