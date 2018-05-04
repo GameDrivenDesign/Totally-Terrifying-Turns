@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/basic_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://torch/torch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://characters/hugger.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/angel.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -20,7 +21,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 37.2696, 41.9925, 0, 0, 0, 0, 24.5059, 41.9925, 0, 0, 0, 0, 24.0658, 86.4451, 0, 0, 0, 0, 72.4796, 88.2056 )
 }
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -104,5 +105,9 @@ curve = SubResource( 2 )
 
 position = Vector2( 37.2696, 41.9925 )
 rotation = 3.14159
+
+[node name="KinematicBody2D" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 125.083, 7.50686 )
 
 

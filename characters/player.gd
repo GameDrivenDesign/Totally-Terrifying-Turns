@@ -31,3 +31,13 @@ func _on_flashlight_area_body_entered(body):
 func _on_flashlight_area_body_exited(body):
 	if body.is_in_group("enemy_flashlight_collider"):
 		body.on_exited_light(self)
+
+
+func _on_neighborhood_area_body_entered(body):
+	if body.is_in_group("enemy_neighborhood_collider"):
+		body.on_entered_neighborhood(self)
+
+
+func _on_neighborhood_area_body_exited(body):
+	if body.is_in_group("enemy_neighborhood_collider"):
+		body.on_exited_neighborhood(self)

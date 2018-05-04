@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://characters/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/lightcone01.png" type="Texture" id=2]
@@ -15,7 +15,12 @@ extents = Vector2( 5.80276, 6.68023 )
 custom_solver_bias = 0.0
 points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 
-[node name="player" type="KinematicBody2D" index="0"]
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 185.937
+
+[node name="player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -111,8 +116,26 @@ shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 
+[node name="neighborhood" type="Area2D" parent="." index="4"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="neighborhood" index="0"]
+
+shape = SubResource( 3 )
+
 [connection signal="body_entered" from="flashlight/area" to="." method="_on_flashlight_area_body_entered"]
 
 [connection signal="body_exited" from="flashlight/area" to="." method="_on_flashlight_area_body_exited"]
+
+[connection signal="body_entered" from="neighborhood" to="." method="_on_neighborhood_area_body_entered"]
+
+[connection signal="body_exited" from="neighborhood" to="." method="_on_neighborhood_area_body_exited"]
 
 
