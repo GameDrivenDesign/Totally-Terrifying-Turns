@@ -12,13 +12,15 @@ var time_to_follow = 0.0
 
 func _ready():
 	set_physics_process(true)
-	
 	path_length = get_parent().get_parent().curve.get_baked_length()
-	
 	followed_player = get_node(followed_player_path)
+	#time_to_follow = 20.0
+	var players = get_tree().get_nodes_in_group("players")
+	for p in players:
+		p.connect("", self, "")
 
-	time_to_follow = 20.0
-
+func _onEnter():
+	print("enter")
 
 func _physics_process(delta):
 	#print(followed_player.position)

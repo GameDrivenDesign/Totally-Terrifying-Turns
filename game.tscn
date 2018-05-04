@@ -77,7 +77,6 @@ _sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
 position = Vector2( 23.7607, 8.55782 )
 scale = Vector2( 0.159774, 0.139001 )
-speed = 40
 
 [node name="Path2D2" type="Path2D" parent="." index="3"]
 

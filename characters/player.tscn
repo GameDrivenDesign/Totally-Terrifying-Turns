@@ -14,7 +14,7 @@ extents = Vector2( 28.8448, 29.0007 )
 custom_solver_bias = 0.0
 points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -22,7 +22,7 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
-speed = null
+speed = 40
 
 [node name="collision_shape" type="CollisionShape2D" parent="." index="0"]
 
@@ -30,7 +30,7 @@ position = Vector2( 0.194221, 0.0780315 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Light2D" type="Light2D" parent="." index="1"]
+[node name="light" type="Light2D" parent="." index="1"]
 
 position = Vector2( 233, -7 )
 enabled = true
@@ -56,7 +56,7 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="Area2D" type="Area2D" parent="Light2D" index="0"]
+[node name="area" type="Area2D" parent="light" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -66,7 +66,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Light2D/Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="light/area" index="0"]
 
 position = Vector2( 90.6066, 7.42013 )
 rotation = 4.71239
