@@ -11,9 +11,9 @@ extents = Vector2( 8, 8 )
 
 closed = true
 cull_mode = 0
-polygon = PoolVector2Array( -10, -10, -10, 10, 10, 10, 10, -10 )
+polygon = PoolVector2Array( -8, -8, -8, 8, 8, 8, 8, -8 )
 
-[node name="root" type="Node2D"]
+[node name="root" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -45,9 +45,9 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="wall" index="1"]
 
-scale = Vector2( 0.8125, 0.8125 )
 occluder = SubResource( 2 )
 light_mask = 1
+_sections_unfolded = [ "Transform" ]
 
 [node name="path" type="Sprite" parent="." index="1"]
 
