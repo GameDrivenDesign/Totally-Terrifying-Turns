@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/angel.png-4dc4d57f7e3bdc9fd0172e9e7a672af3.stex"
+path="res://.import/lightcone01.png-2eab86d0919ffb69d69ea79737cae12c.stex"
 
 [deps]
 
-source_file="res://characters/angel.png"
-source_md5="f0e1c3243de413b267b5eff5330a4811"
+source_file="res://characters/player/lightcone01.png"
+source_md5="0d281e540234da828052293e86bbb411"
 
-dest_files=[ "res://.import/angel.png-4dc4d57f7e3bdc9fd0172e9e7a672af3.stex" ]
-dest_md5="50cf1489135844445ab3a0cb092ce72e"
+dest_files=[ "res://.import/lightcone01.png-2eab86d0919ffb69d69ea79737cae12c.stex" ]
+dest_md5="c26ef79aafa4aef171327f27106c2872"
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lightcone01.png-b4a50ca44bd7c890ae449aceabb75885.stex"
+path="res://.import/endangel.png-477a0dd3fcceddf14ddee3b4050800fd.stex"
 
 [deps]
 
-source_file="res://characters/lightcone01.png"
-source_md5="0d281e540234da828052293e86bbb411"
+source_file="res://characters/hugger/endangel.png"
+source_md5="21d524383b6205ae2bd4872e5f61e452"
 
-dest_files=[ "res://.import/lightcone01.png-b4a50ca44bd7c890ae449aceabb75885.stex" ]
-dest_md5="c26ef79aafa4aef171327f27106c2872"
+dest_files=[ "res://.import/endangel.png-477a0dd3fcceddf14ddee3b4050800fd.stex" ]
+dest_md5="c97a09a8200b385b52943a9367c4bd6d"
 
 [params]
 

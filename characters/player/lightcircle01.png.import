@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player.png-18b5fe307e30cf3d165de4ee9ef1e6f6.stex"
+path="res://.import/lightcircle01.png-3358dfb51e45b2b61ef81e57bf649049.stex"
 
 [deps]
 
-source_file="res://characters/player.png"
-source_md5="0daeba520eebf1431b46772cb5185e44"
+source_file="res://characters/player/lightcircle01.png"
+source_md5="740289ccde4f704a7ebf294fd552c345"
 
-dest_files=[ "res://.import/player.png-18b5fe307e30cf3d165de4ee9ef1e6f6.stex" ]
-dest_md5="0c3f32974806833d75ae25cd73668120"
+dest_files=[ "res://.import/lightcircle01.png-3358dfb51e45b2b61ef81e57bf649049.stex" ]
+dest_md5="f06d71145c4d6d6acc129f38ba32788c"
 
 [params]
 
