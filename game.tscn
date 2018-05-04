@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/basic_tileset.tres" type="TileSet" id=2]
-[ext_resource path="res://characters/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://characters/enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://torch/torch.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/enemy.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -19,7 +20,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 37.2696, 41.9925, 0, 0, 0, 0, 24.5059, 41.9925, 0, 0, 0, 0, 24.0658, 86.4451, 0, 0, 0, 0, 72.4796, 88.2056 )
 }
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -71,18 +72,22 @@ format = 1
 tile_data = PoolIntArray( -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, 0, 0, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 1, 0, 65545, 0, 0, 131072, 0, 0, 131073, 1, 0, 131074, 1, 0, 131075, 0, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 0, 0, 196608, 0, 0, 196609, 1, 0, 196610, 0, 0, 196611, 0, 0, 196612, 1, 0, 196613, 0, 0, 196614, 0, 0, 196615, 1, 0, 196616, 0, 0, 196617, 0, 0, 262144, 0, 0, 262145, 1, 0, 262146, 0, 0, 262147, 0, 0, 262148, 1, 0, 262149, 0, 0, 262150, 0, 0, 262151, 1, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 0, 0, 327686, 0, 0, 327687, 1, 0, 327688, 0, 0, 327689, 0, 0, 393216, 0, 0, 393217, 1, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 458752, 0, 0, 458753, 1, 0, 458754, 0, 0, 458755, 0, 0, 458756, 1, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 524288, 0, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0 )
 _sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
+[node name="torch" parent="maze" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 119.602, 81.0513 )
+
 [node name="player" parent="." index="2" groups=[
 "players",
-] instance=ExtResource( 3 )]
+] instance=ExtResource( 4 )]
 
-position = Vector2( 23.7607, 8.55782 )
+position = Vector2( 27.7328, 7.36618 )
 scale = Vector2( 0.159774, 0.139001 )
 
 [node name="Path2D2" type="Path2D" parent="." index="3"]
 
 curve = SubResource( 1 )
 
-[node name="enemy" parent="Path2D2" index="0" instance=ExtResource( 4 )]
+[node name="enemy" parent="Path2D2" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 71.1592, 119.895 )
 rotation = 1.48989
@@ -91,7 +96,7 @@ rotation = 1.48989
 
 curve = SubResource( 2 )
 
-[node name="enemy" parent="Path2D" index="0" instance=ExtResource( 4 )]
+[node name="enemy" parent="Path2D" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 37.2696, 41.9925 )
 rotation = 3.14159
