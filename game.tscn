@@ -20,7 +20,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 37.2696, 41.9925, 0, 0, 0, 0, 24.5059, 41.9925, 0, 0, 0, 0, 24.0658, 86.4451, 0, 0, 0, 0, 72.4796, 88.2056 )
 }
 
-[node name="game" type="Node2D" index="0"]
+[node name="game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -80,8 +80,8 @@ position = Vector2( 119.602, 81.0513 )
 "players",
 ] instance=ExtResource( 4 )]
 
-position = Vector2( 27.7328, 7.36618 )
-scale = Vector2( 0.159774, 0.139001 )
+position = Vector2( 27.4172, 8.31285 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="Path2D2" type="Path2D" parent="." index="3"]
 
