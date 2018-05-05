@@ -108,7 +108,6 @@ curve = SubResource( 2 )
 [node name="enemy" parent="Path2D" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 37.2696, 41.9925 )
-rotation = 3.14159
 
 [node name="KinematicBody2D" parent="." index="6" instance=ExtResource( 7 )]
 
@@ -122,5 +121,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 script = ExtResource( 8 )
+
+[connection signal="hit" from="player" to="." method="_on_player_hit"]
 
 

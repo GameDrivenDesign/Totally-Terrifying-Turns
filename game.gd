@@ -1,4 +1,8 @@
 extends Node2D
 
-func _ready():
+func start():
+	#Todo: Start Intro scene
 	pass
+
+func _on_player_hit():
+	start()

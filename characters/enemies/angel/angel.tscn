@@ -8,9 +8,10 @@
 custom_solver_bias = 0.0
 radius = 4.71644
 
-[node name="KinematicBody2D" type="KinematicBody2D" index="0" groups=[
-"enemy_flashlight_collider",
+[node name="KinematicBody2D" type="KinematicBody2D" groups=[
 "enemy_neighborhood_collider",
+"enemy_flashlight_collider",
+"killing_enemies",
 ]]
 
 input_pickable = false
