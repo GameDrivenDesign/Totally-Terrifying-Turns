@@ -41,7 +41,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -109,7 +109,7 @@ text = "Help!
 You fell down into a cave. 
 Try to escape the labyrinth before the monsters catch you...
 Good Luck!"
-percent_visible = 0.670455
+percent_visible = 0.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
