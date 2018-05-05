@@ -4,7 +4,7 @@ extends Node
 # var a = 2
 # var b = "textvar"
 
-const see_all = false
+const see_all = true
 const no_enemy_collision = false
 
 const settings_path = "user://settings.cfg"
