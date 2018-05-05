@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://gameover.gd" type="Script" id=1]
 [ext_resource path="res://fonts/pixel_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://sound_effects/death_scream.wav" type="AudioStream" id=3]
 
 [node name="Node2D" type="Node2D"]
 
@@ -80,5 +81,17 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
+
+[node name="death_scream" type="AudioStreamPlayer2D" parent="." index="3"]
+
+position = Vector2( 516.091, 297.067 )
+stream = ExtResource( 3 )
+volume_db = -8.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+_sections_unfolded = [ "Transform" ]
 
 
