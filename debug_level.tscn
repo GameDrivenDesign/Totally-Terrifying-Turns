@@ -27,7 +27,7 @@ _data = {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="debug_level" type="Node2D" index="0"]
+[node name="debug_level" type="Node2D"]
 
 script = ExtResource( 1 )
 

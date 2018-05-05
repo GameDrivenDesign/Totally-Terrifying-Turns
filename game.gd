@@ -1,11 +1,7 @@
 extends "res://level.gd"
 
-func start():
-	start_intro()
-
-
 func _on_player_hit():
-	start()
+	start_gameoverscreen()
 
 
 func _on_goal_area_body_entered(body):
