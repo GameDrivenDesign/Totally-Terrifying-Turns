@@ -15,7 +15,7 @@ extents = Vector2( 5.80276, 6.68023 )
 custom_solver_bias = 0.0
 points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -39,7 +39,7 @@ scale = Vector2( 0.230211, 0.233423 )
 enabled = true
 editor_only = false
 texture = ExtResource( 2 )
-offset = Vector2( 233, -7 )
+offset = Vector2( 240, -10 )
 texture_scale = 1.0
 color = Color( 1, 1, 1, 1 )
 energy = 1.0
@@ -87,7 +87,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="personalLight" type="Light2D" parent="." index="3"]
 
-position = Vector2( 2.08155, 1.25916 )
 scale = Vector2( 0.121984, 0.120942 )
 enabled = true
 editor_only = false
@@ -110,6 +109,7 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="body_entered" from="Flashlight/Area2D" to="." method="_on_area_body_entered"]
 
