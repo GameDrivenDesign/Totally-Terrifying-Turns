@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/endangel.png-477a0dd3fcceddf14ddee3b4050800fd.stex"
+path="res://.import/angel.png-6d5d58c93c5fa7ceaa682a1597403787.stex"
 
 [deps]
 
-source_file="res://characters/hugger/endangel.png"
-source_md5="21d524383b6205ae2bd4872e5f61e452"
+source_file="res://characters/enemies/angel/angel.png"
+source_md5="f0e1c3243de413b267b5eff5330a4811"
 
-dest_files=[ "res://.import/endangel.png-477a0dd3fcceddf14ddee3b4050800fd.stex" ]
-dest_md5="3275608449ea75ec4acef3135a1f094d"
+dest_files=[ "res://.import/angel.png-6d5d58c93c5fa7ceaa682a1597403787.stex" ]
+dest_md5="490253027087b41174a11100e21fd8e9"
 
 [params]
 

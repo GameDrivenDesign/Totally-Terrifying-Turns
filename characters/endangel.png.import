@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/angel.png-2e9f91ebfa60b84f4e61ee75cf9da890.stex"
+path="res://.import/endangel.png-9b15530fd11f8b49df6f00ab89867cd4.stex"
 
 [deps]
 
-source_file="res://characters/angel/angel.png"
-source_md5="f0e1c3243de413b267b5eff5330a4811"
+source_file="res://characters/endangel.png"
+source_md5="21d524383b6205ae2bd4872e5f61e452"
 
-dest_files=[ "res://.import/angel.png-2e9f91ebfa60b84f4e61ee75cf9da890.stex" ]
-dest_md5="490253027087b41174a11100e21fd8e9"
+dest_files=[ "res://.import/endangel.png-9b15530fd11f8b49df6f00ab89867cd4.stex" ]
+dest_md5="c97a09a8200b385b52943a9367c4bd6d"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

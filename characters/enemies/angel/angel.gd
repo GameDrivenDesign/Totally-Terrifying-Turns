@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const common = preload("../common.gd")
+
 enum ENEMY_STATE {
 	inactive,
 	blinded,
@@ -33,4 +35,6 @@ func on_exited_neighborhood(player):
 
 func _physics_process(delta):
 	if enemy_state == ENEMY_STATE.following:
-		move_and_collide((followed_player.global_position - global_position).normalized() * FOLLOW_SPEED * delta)
+		var direction = common.calc_direction(self, followed_player)
+		move_and_collide(direction * FOLLOW_SPEED * delta)
+		rotation = common.calc_angle(direction)

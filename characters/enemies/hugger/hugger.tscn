@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://characters/hugger/hugger.gd" type="Script" id=1]
-[ext_resource path="res://characters/hugger/endangel.png" type="Texture" id=2]
+[ext_resource path="res://characters/enemies/hugger/hugger.gd" type="Script" id=1]
+[ext_resource path="res://characters/enemies/hugger/endangel.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -11,7 +11,6 @@ radius = 4.71644
 [node name="hugger" type="PathFollow2D"]
 
 position = Vector2( 22.5455, 5.84727 )
-rotation = -0.0012698
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -30,10 +29,12 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="sprite" type="Sprite" parent="KinematicBody2D" index="0"]
 
 position = Vector2( -1.90735e-06, 4.76837e-07 )
+rotation = 1.5708
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
