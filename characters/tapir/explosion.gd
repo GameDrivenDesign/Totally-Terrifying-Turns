@@ -5,7 +5,7 @@ extends Node2D
 # var b = "textvar"
 
 func _ready():
-	pass
+	$audio_player.play()
 
 func big_explosion():
 	scale *= 10

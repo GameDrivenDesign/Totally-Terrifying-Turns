@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tapir_explosion.wav-aae2fcf108eae6fceddb00068adffae8.sample"
+
+[deps]
+
+source_file="res://sound_effects/tapir_explosion.wav"
+source_md5="c41baaff90bafe94a864f3ddfad34a1c"
+
+dest_files=[ "res://.import/tapir_explosion.wav-aae2fcf108eae6fceddb00068adffae8.sample" ]
+dest_md5="058b64776bfec22f050e3f1bf6ffb498"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
