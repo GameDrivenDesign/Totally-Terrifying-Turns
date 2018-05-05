@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://CanvasModulate.gd" type="Script" id=2]
@@ -24,6 +24,11 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 37.2696, 41.9925, 0, 0, 0, 0, 24.5059, 41.9925, 0, 0, 0, 0, 24.0658, 86.4451, 0, 0, 0, 0, 72.4796, 88.2056 )
 }
 
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
 [node name="game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
@@ -33,7 +38,7 @@ script = ExtResource( 1 )
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 2 )
 
-[node name="Navigation2D" type="Navigation2D" parent="." index="2"]
+[node name="Navigation2D" type="Navigation2D" parent="." index="1"]
 
 [node name="maze" type="TileMap" parent="Navigation2D" index="0"]
 
@@ -61,9 +66,7 @@ _sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
 position = Vector2( 119.602, 81.0513 )
 
-[node name="player" parent="." index="2" groups=[
-"players",
-] instance=ExtResource( 6 )]
+[node name="player" parent="." index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 27.4172, 8.31285 )
 scale = Vector2( 0.8, 0.8 )
@@ -112,9 +115,8 @@ curve = SubResource( 2 )
 [node name="enemy" parent="Path2D" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 37.2696, 41.9925 )
-rotation = 3.14159
 
-[node name="KinematicBody2D" parent="." index="6" instance=ExtResource( 8 )]
+[node name="KinematicBody2D" parent="." index="5" instance=ExtResource( 8 )]
 
 position = Vector2( 27.3752, 134.703 )
 
@@ -126,5 +128,22 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 script = ExtResource( 9 )
+
+[node name="goal_area" type="Area2D" parent="." index="7"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="goal_area" index="0"]
+
+position = Vector2( 143.753, 140.885 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="goal_area" to="." method="_on_goal_area_body_entered"]
 
 
