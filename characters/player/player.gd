@@ -26,6 +26,7 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("toggle_flashlight") and time_till_flashlight_toggleable <= 0:
 		$flashlight.enabled = !$flashlight.enabled
+		$flashlight/area/shape.disabled = !$flashlight/area/shape.disabled
 		
 	var distance = speed * delta * direction
 	move_and_collide(distance)
@@ -45,12 +46,12 @@ func is_something_in_between(pos1, pos2):
 	return distance > 1
 
 func _on_flashlight_area_body_entered(body):
-	if $flashlight.enabled and body.is_in_group("enemy_flashlight_collider") and not is_something_in_between(global_position, body.global_position):
+	if body.is_in_group("enemy_flashlight_collider") and not is_something_in_between(global_position, body.global_position):
 		body.on_entered_light(self)
 
 
 func _on_flashlight_area_body_exited(body):
-	if $flashlight.enabled and body.is_in_group("enemy_flashlight_collider"):
+	if body.is_in_group("enemy_flashlight_collider"):
 		body.on_exited_light(self)
 
 
