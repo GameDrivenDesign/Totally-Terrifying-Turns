@@ -10,6 +10,7 @@ const BASESPEED = 5
 
 var enemies_in_flashlight_area = []
 var time_till_flashlight_toggleable = 0.2
+var keys = 0
 var is_in_godmode
 var movement_speed
 
@@ -83,6 +84,10 @@ func is_something_in_between(pos1, pos2):
 	# Magic value to take area of collision objects into account
 	distance -= 8
 	return distance > 1
+	
+func pick_up_key():
+	keys = keys + 1
+	print(keys)
 
 func _on_flashlight_area_body_entered(body):
 	if body.is_in_group("enemy_flashlight_collider"):

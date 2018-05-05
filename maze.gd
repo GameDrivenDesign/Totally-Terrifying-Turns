@@ -1,10 +1,7 @@
 extends TileMap
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 var wall_id
+var door_areas = []
 var path_id
 
 func add_light_occluder(wall_position):
@@ -27,6 +24,14 @@ func add_light_occluder(wall_position):
 	occluder.set_occluder_polygon(polygon)
 	add_child(occluder)
 	
+func add_door_area(position):#
+	var origin = to_local(map_to_world(position)) + Vector2(8, 8)
+	var area = preload("res://door_area.tscn").instance()
+	area.global_position = origin
+	area.connect("body_entered", self, "_on_door_area_entered")
+	add_child(area)
+	door_areas.append(area)
+
 func add_nav_mesh(path_position):
 	var neighbor_data = [Vector2(-1, 0), Vector2(0, -1), Vector2(1, 0), Vector2(0, 1)]
 	var navmesh_data = []
@@ -49,20 +54,28 @@ func add_nav_mesh(path_position):
 	nav_poly.set_navigation_polygon(polygon)
 	add_child(nav_poly)
 	
-
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
+
 	wall_id = get_tileset().find_tile_by_name("wall")
 	path_id = get_tileset().find_tile_by_name("path")
 	var wall_positions = get_used_cells_by_id(wall_id)
 	var path_positions = get_used_cells_by_id(path_id)
 	for wall_position in wall_positions:
 		add_light_occluder(wall_position)
+	
+	var door_id = get_tileset().find_tile_by_name("door")
+	var door_positions = get_used_cells_by_id(door_id)
+	for door_position in door_positions:
+		add_door_area(door_position)
+
 	for path_position in path_positions:
 		add_nav_mesh(path_position)
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _on_door_area_entered(body):
+	if body.is_in_group("players"):
+		if body.keys >= 1:
+			for door_area in door_areas:
+				if door_area.overlaps_body(body):
+					get_cellv(world_to_map(door_area.global_position))
+					set_cellv(world_to_map(door_area.global_position), get_tileset().find_tile_by_name("door_open"))
+					body.keys = body.keys - 1
