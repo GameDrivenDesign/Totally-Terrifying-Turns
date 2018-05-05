@@ -15,12 +15,12 @@ vertices = PoolVector2Array( -12, -8, -12, 8, -28, 8, -28, -8 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( -28, -8, -28, 8, -12, 8, -12, -8 ) ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8.07875, 7.97893 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8.07875, 7.97893 )
@@ -71,7 +71,7 @@ extents = Vector2( 8.07875, 7.97893 )
 3/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 3 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
 } ]
 4/name = "door"
@@ -85,7 +85,7 @@ extents = Vector2( 8.07875, 7.97893 )
 4/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 4 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
 } ]
 5/name = "door_open"

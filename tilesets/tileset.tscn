@@ -15,7 +15,7 @@ vertices = PoolVector2Array( -12, -8, -12, 8, -28, 8, -28, -8 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( -28, -8, -28, 8, -12, 8, -12, -8 ) ]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8.07875, 7.97893 )
@@ -34,7 +34,6 @@ _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility
 
 [node name="StaticBody2D" type="StaticBody2D" parent="wall" index="0"]
 
-visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -59,7 +58,6 @@ _sections_unfolded = [ "Region" ]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="path" index="0"]
 
-visible = false
 position = Vector2( 20, 0 )
 navpoly = SubResource( 2 )
 enabled = true
@@ -74,7 +72,6 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="door" index="0"]
 
-visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -85,7 +82,7 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door/StaticBody2D" index="0"]
 
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="door_open" type="Sprite" parent="." index="3"]
