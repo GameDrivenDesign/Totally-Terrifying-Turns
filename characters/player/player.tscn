@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/lightcone01.png" type="Texture" id=2]
 [ext_resource path="res://sound_effects/beep.wav" type="AudioStream" id=3]
 [ext_resource path="res://characters/player/player.png" type="Texture" id=4]
 [ext_resource path="res://characters/player/lightcircle02.png" type="Texture" id=5]
+[ext_resource path="res://fonts/pixel_font.tres" type="DynamicFont" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -39,7 +40,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 radius = 185.937
 
-[node name="player" type="KinematicBody2D" groups=[
+[node name="player" type="KinematicBody2D" index="0" groups=[
 "players",
 ]]
 
@@ -200,6 +201,37 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Smoothing", "Transform" ]
+
+[node name="hud" type="CanvasLayer" parent="." index="7"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="battery_status_label" type="Label" parent="hud" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 16.0
+margin_right = 124.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 6 )
+text = "battery_status_label"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Rect", "Theme", "custom_fonts" ]
 
 [connection signal="body_entered" from="flashlight/area" to="." method="_on_flashlight_area_body_entered"]
 
