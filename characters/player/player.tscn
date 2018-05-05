@@ -39,7 +39,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 radius = 185.937
 
-[node name="player" type="KinematicBody2D" groups=[
+[node name="player" type="KinematicBody2D" index="0" groups=[
 "players",
 ]]
 
@@ -192,14 +192,14 @@ smoothing_enabled = true
 smoothing_speed = 5.0
 offset_v = 0.0
 offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Smoothing", "Transform" ]
+_sections_unfolded = [ "Drag Margin", "Offset", "Smoothing", "Transform" ]
 
 [connection signal="body_entered" from="flashlight/area" to="." method="_on_flashlight_area_body_entered"]
 
