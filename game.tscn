@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://CanvasModulate.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://characters/enemies/hugger/hugger.tscn" type="PackedScene" id=7]
 [ext_resource path="res://characters/enemies/angel/angel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://music.gd" type="Script" id=9]
+[ext_resource path="res://lightning/lightning.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -24,7 +25,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 37.2696, 41.9925, 0, 0, 0, 0, 24.5059, 41.9925, 0, 0, 0, 0, 24.0658, 86.4451, 0, 0, 0, 0, 72.4796, 88.2056 )
 }
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -33,34 +34,7 @@ script = ExtResource( 1 )
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="1"]
-
-position = Vector2( 80, 70 )
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 0.3, 0.3 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
-_sections_unfolded = [ "Transform" ]
-
-[node name="Navigation2D" type="Navigation2D" parent="." index="2"]
+[node name="Navigation2D" type="Navigation2D" parent="." index="1"]
 
 [node name="maze" type="TileMap" parent="Navigation2D" index="0"]
 
@@ -88,14 +62,41 @@ _sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
 position = Vector2( 119.602, 81.0513 )
 
-[node name="player" parent="." index="3" groups=[
+[node name="player" parent="." index="2" groups=[
 "players",
 ] instance=ExtResource( 6 )]
 
 position = Vector2( 27.4172, 8.31285 )
 scale = Vector2( 0.8, 0.8 )
 
-[node name="Path2D2" type="Path2D" parent="." index="4"]
+[node name="Camera2D" type="Camera2D" parent="player" index="6"]
+
+scale = Vector2( 2, 2 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 0.3, 0.3 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Smoothing", "Transform" ]
+
+[node name="Path2D2" type="Path2D" parent="." index="3"]
 
 curve = SubResource( 1 )
 
@@ -104,20 +105,19 @@ curve = SubResource( 1 )
 position = Vector2( 71.1592, 119.895 )
 rotation = 1.48989
 
-[node name="Path2D" type="Path2D" parent="." index="5"]
+[node name="Path2D" type="Path2D" parent="." index="4"]
 
 curve = SubResource( 2 )
 
 [node name="enemy" parent="Path2D" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 37.2696, 41.9925 )
-rotation = 3.14159
 
-[node name="KinematicBody2D" parent="." index="6" instance=ExtResource( 8 )]
+[node name="KinematicBody2D" parent="." index="5" instance=ExtResource( 8 )]
 
 position = Vector2( 27.3752, 134.703 )
 
-[node name="music" type="AudioStreamPlayer" parent="." index="7"]
+[node name="music" type="AudioStreamPlayer" parent="." index="6"]
 
 stream = null
 volume_db = 0.0
@@ -125,5 +125,9 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 script = ExtResource( 9 )
+
+[node name="lightning" parent="." index="7" instance=ExtResource( 10 )]
+
+position = Vector2( 96.7276, 72.1511 )
 
 
