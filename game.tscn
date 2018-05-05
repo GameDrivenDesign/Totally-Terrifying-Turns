@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://CanvasModulate.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://characters/enemies/hugger/hugger.tscn" type="PackedScene" id=7]
 [ext_resource path="res://characters/enemies/angel/angel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://music.gd" type="Script" id=9]
+[ext_resource path="res://lightning/lightning.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -33,7 +34,7 @@ script = ExtResource( 1 )
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 2 )
 
-[node name="Navigation2D" type="Navigation2D" parent="." index="2"]
+[node name="Navigation2D" type="Navigation2D" parent="." index="1"]
 
 [node name="maze" type="TileMap" parent="Navigation2D" index="0"]
 
@@ -112,7 +113,7 @@ curve = SubResource( 2 )
 
 position = Vector2( 37.2696, 41.9925 )
 
-[node name="KinematicBody2D" parent="." index="6" instance=ExtResource( 8 )]
+[node name="KinematicBody2D" parent="." index="5" instance=ExtResource( 8 )]
 
 position = Vector2( 27.3752, 134.703 )
 
@@ -124,5 +125,9 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 script = ExtResource( 9 )
+
+[node name="lightning" parent="." index="7" instance=ExtResource( 10 )]
+
+position = Vector2( 96.7276, 72.1511 )
 
 
