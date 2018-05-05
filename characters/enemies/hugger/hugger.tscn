@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 radius = 4.71644
 
-[node name="hugger" type="PathFollow2D" groups=[
+[node name="hugger" type="PathFollow2D" index="0" groups=[
 "killing_enemies",
 ]]
 
@@ -25,6 +25,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." index="0" groups=[
 "enemy_flashlight_collider",
+"killing_enemies",
 ]]
 
 input_pickable = false

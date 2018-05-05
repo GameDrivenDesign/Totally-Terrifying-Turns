@@ -1,8 +1,7 @@
 extends "res://level.gd"
 
 func start():
-	#Todo: Start Intro scene
-	pass
+	start_intro()
 
 
 func _on_player_hit():
