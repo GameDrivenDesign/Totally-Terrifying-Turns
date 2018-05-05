@@ -11,6 +11,7 @@ radius = 4.71644
 [node name="hugger" type="PathFollow2D"]
 
 position = Vector2( 22.5455, 5.84727 )
+rotation = 3.14159
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -34,7 +35,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="sprite" type="Sprite" parent="KinematicBody2D" index="0"]
 
 position = Vector2( -1.90735e-06, 4.76837e-07 )
-rotation = 4.71239
+rotation = 1.5708
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]

@@ -2,6 +2,7 @@ extends Node2D
 
 export (float, 0, 100, 0.1) var speed = 40
 
+var enemies_in_flashlight_area = []
 var time_till_flashlight_toggleable = 0.2
 
 func _ready():
@@ -31,27 +32,35 @@ func _process(delta):
 	var distance = speed * delta * direction
 	move_and_collide(distance)
 	
+func _physics_process(delta):
+	if $flashlight.enabled:
+		for enemy in enemies_in_flashlight_area:
+			if not is_something_in_between(global_position, enemy.global_position):
+				enemy.on_entered_light(self)	
+		
+	
 func is_something_in_between(pos1, pos2):
 	var space_state = get_world_2d().direct_space_state
 	var intersection = space_state.intersect_ray(pos1, pos2, [self, $flashlight/area/CollisionShape2D, $flashlight/area])
 	#Debug code for ray casting, shows ray cast intersection point
-	var s = Sprite.new()
-	s.texture = preload("res://characters/player/lightcircle01.png")
-	s.position = intersection.position
-	s.scale = Vector2(0.01, 0.01)
-	get_parent().add_child(s)
+	#var s = Sprite.new()
+	#s.texture = preload("res://characters/player/lightcircle01.png")
+	#s.position = intersection.position
+	#s.scale = Vector2(0.01, 0.01)
+	#get_parent().add_child(s)
 	var distance = intersection.position.distance_to(pos2)
 	# Magic value to take area of collision objects into account
 	distance -= 8
 	return distance > 1
 
 func _on_flashlight_area_body_entered(body):
-	if body.is_in_group("enemy_flashlight_collider") and not is_something_in_between(global_position, body.global_position):
-		body.on_entered_light(self)
+	if body.is_in_group("enemy_flashlight_collider"):
+		enemies_in_flashlight_area.push_back(body)
 
 
 func _on_flashlight_area_body_exited(body):
 	if body.is_in_group("enemy_flashlight_collider"):
+		enemies_in_flashlight_area.remove(enemies_in_flashlight_area.find(body))
 		body.on_exited_light(self)
 
 
@@ -62,4 +71,4 @@ func _on_neighborhood_area_body_entered(body):
 
 func _on_neighborhood_area_body_exited(body):
 	if body.is_in_group("enemy_neighborhood_collider"):
-		body.on_exited_neighborhood(self)
+		body.on_exited_neighborhood(self)		
