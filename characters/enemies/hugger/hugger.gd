@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const common = preload("../common.gd")
+
 enum ENEMY_STATE {
 	patrolling,
 	following_in_light,
@@ -18,12 +20,6 @@ var path_length
 
 var followed_player = null
 var time_to_follow = 0.0
-
-func calc_angle(vec2):
-	return acos(Vector2(0.0, -1.0).dot(vec2))
-	
-func calc_direction(player):
-	return (followed_player.global_position - global_position).normalized()
 
 func _ready():
 	set_physics_process(true)
@@ -56,6 +52,7 @@ func _physics_process(delta):
 		return
 		
 	if enemy_state == ENEMY_STATE.following_in_light or (enemy_state == ENEMY_STATE.following_out_of_light and time_to_follow > 0.0):
-		var direction = calc_direction(followed_player)
+		var direction = common.calc_direction(self, followed_player)
 		move_and_collide(direction * FOLLOW_SPEED * delta)
-		rotation = calc_angle(direction)
+		get_parent().rotation = 0
+		rotation = common.calc_angle(direction)

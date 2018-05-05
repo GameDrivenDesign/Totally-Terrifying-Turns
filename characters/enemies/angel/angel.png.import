@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/angel.png-2e9f91ebfa60b84f4e61ee75cf9da890.stex"
+path="res://.import/angel.png-6d5d58c93c5fa7ceaa682a1597403787.stex"
 
 [deps]
 
-source_file="res://characters/angel/angel.png"
+source_file="res://characters/enemies/angel/angel.png"
 source_md5="f0e1c3243de413b267b5eff5330a4811"
 
-dest_files=[ "res://.import/angel.png-2e9f91ebfa60b84f4e61ee75cf9da890.stex" ]
+dest_files=[ "res://.import/angel.png-6d5d58c93c5fa7ceaa682a1597403787.stex" ]
 dest_md5="490253027087b41174a11100e21fd8e9"
 
 [params]
