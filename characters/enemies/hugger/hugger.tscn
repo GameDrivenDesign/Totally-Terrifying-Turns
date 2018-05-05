@@ -28,11 +28,11 @@ _sections_unfolded = [ "Transform" ]
 ]]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+collision_mask = 3
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="sprite" type="Sprite" parent="KinematicBody2D" index="0"]
 

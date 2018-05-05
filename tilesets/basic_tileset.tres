@@ -7,10 +7,11 @@
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="NavigationPolygon" id=2]
 
-custom_solver_bias = 0.0
-extents = Vector2( 6.3189, 9.91018 )
+vertices = PoolVector2Array( -12, -8, -12, 8, -28, 8, -28, -8 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( -28, -8, -28, 8, -12, 8, -12, -8 ) ]
 
 [resource]
 
@@ -36,6 +37,7 @@ extents = Vector2( 6.3189, 9.91018 )
 1/is_autotile = false
 1/occluder_offset = Vector2( 8, 8 )
 1/navigation_offset = Vector2( 8, 8 )
+1/navigation = SubResource( 2 )
 1/shapes = [  ]
 2/name = "torch"
 2/texture = ExtResource( 1 )
@@ -48,7 +50,7 @@ extents = Vector2( 6.3189, 9.91018 )
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 3 ),
+"shape": null,
 "shape_transform": Transform2D( 1, 0, 0, 1, 8.19318, 10.2273 )
 } ]
 _sections_unfolded = [ "0", "Resource" ]

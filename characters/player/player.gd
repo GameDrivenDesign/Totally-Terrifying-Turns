@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 
 signal hit
 
@@ -8,6 +8,9 @@ var enemies_in_flashlight_area = []
 var time_till_flashlight_toggleable = 0.2
 
 func _ready():
+	if (config.no_enemy_collision):
+		set_collision_mask_bit(1, false)
+		set_collision_layer_bit(1, false)
 	$flashlight_animation_player.play("flickering")
 
 func _process(delta):
@@ -30,6 +33,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("toggle_flashlight") and time_till_flashlight_toggleable <= 0:
 		$flashlight.enabled = !$flashlight.enabled
 		$flashlight/area/shape.disabled = !$flashlight/area/shape.disabled
+		$flashlight/audio_player.play()
+		#time_till_flashlight_toggleable = 0.4
 		
 	var distance = speed * delta * direction
 	move_and_collide(distance)

@@ -7,10 +7,10 @@ path="res://.import/tiles-78.png-28d012dcf2eb170416ee3a4470386660.stex"
 [deps]
 
 source_file="res://torch/tiles/tiles-78.png"
-source_md5="7bfb636e70736004ce2715bb1d1f9b0e"
+source_md5="ea3c79d8a146dcc77fe6a9b005b043a4"
 
 dest_files=[ "res://.import/tiles-78.png-28d012dcf2eb170416ee3a4470386660.stex" ]
-dest_md5="0b876e2403c3ccbe5fbe589112766726"
+dest_md5="39bab981dacc61396d2645654c6c39bb"
 
 [params]
 
