@@ -31,6 +31,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("toggle_flashlight") and time_till_flashlight_toggleable <= 0:
 		$flashlight.enabled = !$flashlight.enabled
 		$flashlight/area/shape.disabled = !$flashlight/area/shape.disabled
+		$flashlight/audio_player.play()
+		#time_till_flashlight_toggleable = 0.4
 		
 	var distance = speed * delta * direction
 	move_and_collide(distance)

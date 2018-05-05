@@ -4,7 +4,7 @@
 [ext_resource path="res://lightning/lightning.gd" type="Script" id=2]
 [ext_resource path="res://sound_effects/lightning.wav" type="AudioStream" id=3]
 
-[node name="lightning" type="Light2D" index="0"]
+[node name="lightning" type="Light2D"]
 
 position = Vector2( 92.2151, 80.2736 )
 scale = Vector2( 20, 20 )
