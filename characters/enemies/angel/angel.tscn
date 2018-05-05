@@ -36,9 +36,9 @@ shape = SubResource( 1 )
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="2"]
 
 stream = ExtResource( 3 )
-volume_db = -14.0
+volume_db = 0.0
 autoplay = true
-max_distance = 25.0
+max_distance = 90.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
