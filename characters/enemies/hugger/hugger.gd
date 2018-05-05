@@ -60,4 +60,4 @@ func _physics_process(delta):
 		rotation = common.calc_angle(direction)
 
 func hit_by_explosion():
-	pass
+	queue_free()

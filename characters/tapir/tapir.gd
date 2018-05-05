@@ -6,7 +6,7 @@ func _ready():
 	exploded = false
 
 func _on_attack_area_body_entered(body):
-	if body.is_in_group("enemy_neighborhood_collider") || body.is_in_group("enemy_flashlight_collider") && not exploded:
+	if (body.is_in_group("enemy_neighborhood_collider") || body.is_in_group("enemy_flashlight_collider")) && not exploded:
 		body.hit_by_explosion()
 		explode()
 
