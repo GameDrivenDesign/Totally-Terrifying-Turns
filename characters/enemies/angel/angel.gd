@@ -22,6 +22,8 @@ func on_entered_light(player):
 	enemy_state = ENEMY_STATE.blinded
 	
 func on_exited_light(player):
+	if enemy_state != ENEMY_STATE.blinded:
+		return
 	followed_player = player
 	enemy_state = ENEMY_STATE.following
 	

@@ -30,6 +30,8 @@ func on_entered_light(player):
 	enemy_state = ENEMY_STATE.following_in_light
 	
 func on_exited_light(player):
+	if enemy_state != ENEMY_STATE.following_in_light:
+		return
 	followed_player = player
 	enemy_state = ENEMY_STATE.following_out_of_light
 	time_to_follow = MAX_TIME_TO_FOLLOW

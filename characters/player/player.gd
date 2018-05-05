@@ -25,9 +25,23 @@ func _process(delta):
 		
 	var distance = speed * delta * direction
 	move_and_collide(distance)
+	
+func is_something_in_between(pos1, pos2):
+	var space_state = get_world_2d().direct_space_state
+	var intersection = space_state.intersect_ray(pos1, pos2, [self, $flashlight/area/CollisionShape2D, $flashlight/area])
+	#Debug code for ray casting, shows ray cast intersection point
+	var s = Sprite.new()
+	s.texture = preload("res://characters/player/lightcircle01.png")
+	s.position = intersection.position
+	s.scale = Vector2(0.01, 0.01)
+	get_parent().add_child(s)
+	var distance = intersection.position.distance_to(pos2)
+	# Magic value to take area of collision objects into account
+	distance -= 8
+	return distance > 1
 
 func _on_flashlight_area_body_entered(body):
-	if get_node("flashlight").enabled and body.is_in_group("enemy_flashlight_collider"):
+	if get_node("flashlight").enabled and body.is_in_group("enemy_flashlight_collider") and not is_something_in_between(global_position, body.global_position):
 		body.on_entered_light(self)
 
 
