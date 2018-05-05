@@ -9,6 +9,7 @@
 [ext_resource path="res://characters/enemies/hugger/hugger.tscn" type="PackedScene" id=7]
 [ext_resource path="res://characters/enemies/angel/angel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://music.gd" type="Script" id=9]
+[ext_resource path="res://lightning/lightning.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -24,12 +25,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 37.2696, 41.9925, 0, 0, 0, 0, 24.5059, 41.9925, 0, 0, 0, 0, 24.0658, 86.4451, 0, 0, 0, 0, 72.4796, 88.2056 )
 }
 
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[node name="game" type="Node2D" index="0"]
+[node name="game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -66,14 +62,15 @@ _sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
 position = Vector2( 119.602, 81.0513 )
 
-[node name="player" parent="." index="2" instance=ExtResource( 6 )]
+[node name="player" parent="." index="2" groups=[
+"players",
+] instance=ExtResource( 6 )]
 
 position = Vector2( 27.4172, 8.31285 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="Camera2D" type="Camera2D" parent="player" index="6"]
 
-position = Vector2( 65.7285, 77.1089 )
 scale = Vector2( 2, 2 )
 anchor_mode = 1
 rotating = false
@@ -129,22 +126,9 @@ mix_target = 0
 bus = "Master"
 script = ExtResource( 9 )
 
-[node name="goal_area" type="Area2D" parent="." index="7"]
+[node name="lightning" parent="." index="7" instance=ExtResource( 10 )]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="goal_area" index="0"]
-
-position = Vector2( 143.753, 140.885 )
-shape = SubResource( 3 )
-
-[connection signal="body_entered" from="goal_area" to="." method="_on_goal_area_body_entered"]
+position = Vector2( 96.7276, 72.1511 )
 
 [connection signal="hit" from="player" to="." method="_on_player_hit"]
 
