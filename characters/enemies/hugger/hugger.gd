@@ -58,3 +58,6 @@ func _physics_process(delta):
 		move_and_collide(direction * FOLLOW_SPEED * delta)
 		get_parent().rotation = 0
 		rotation = common.calc_angle(direction)
+
+func hit_by_explosion():
+	pass

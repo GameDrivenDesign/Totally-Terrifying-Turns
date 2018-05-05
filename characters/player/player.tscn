@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/lightcone01.png" type="Texture" id=2]
 [ext_resource path="res://sound_effects/beep.wav" type="AudioStream" id=3]
 [ext_resource path="res://characters/player/player.png" type="Texture" id=4]
 [ext_resource path="res://characters/player/lightcircle02.png" type="Texture" id=5]
+[ext_resource path="res://fonts/pixel_font.tres" type="DynamicFont" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -39,7 +40,12 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 radius = 185.937
 
-[node name="player" type="KinematicBody2D" index="0" groups=[
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6.49728, 7.48503 )
+
+[node name="player" type="KinematicBody2D" groups=[
 "players",
 ]]
 
@@ -162,6 +168,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="neighborhood" type="Area2D" parent="." index="5"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -201,6 +208,52 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Offset", "Smoothing", "Transform" ]
 
+[node name="hud" type="CanvasLayer" parent="." index="7"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="battery_status_label" type="Label" parent="hud" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 16.0
+margin_right = 124.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 6 )
+text = "battery_status_label"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Rect", "Theme", "custom_colors", "custom_fonts" ]
+
+[node name="hitbox" type="Area2D" parent="." index="8"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" index="0"]
+
+position = Vector2( 0.460075, 0.230038 )
+shape = SubResource( 5 )
+
 [connection signal="body_entered" from="flashlight/area" to="." method="_on_flashlight_area_body_entered"]
 
 [connection signal="body_exited" from="flashlight/area" to="." method="_on_flashlight_area_body_exited"]
@@ -208,5 +261,7 @@ _sections_unfolded = [ "Drag Margin", "Offset", "Smoothing", "Transform" ]
 [connection signal="body_entered" from="neighborhood" to="." method="_on_neighborhood_area_body_entered"]
 
 [connection signal="body_exited" from="neighborhood" to="." method="_on_neighborhood_area_body_exited"]
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/endangel.png-9b15530fd11f8b49df6f00ab89867cd4.stex"
+path="res://.import/particle_round.png-8c971d1ae59d1600e78584a6a227a36e.stex"
 
 [deps]
 
-source_file="res://characters/endangel.png"
-source_md5="21d524383b6205ae2bd4872e5f61e452"
+source_file="res://characters/tapir/particle_round.png"
+source_md5="6fffa9988cb9c8f0b687d3b205e9647f"
 
-dest_files=[ "res://.import/endangel.png-9b15530fd11f8b49df6f00ab89867cd4.stex" ]
-dest_md5="c97a09a8200b385b52943a9367c4bd6d"
+dest_files=[ "res://.import/particle_round.png-8c971d1ae59d1600e78584a6a227a36e.stex" ]
+dest_md5="8609437e4e38cb4bdce557cb20d9077f"
 
 [params]
 

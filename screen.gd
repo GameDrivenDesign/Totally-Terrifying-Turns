@@ -21,3 +21,9 @@ func start_game():
 
 func start_intro():
 	start_scene("res://intro.tscn")
+
+func start_gameoverscreen():
+	start_scene("res://gameover.tscn")
+
+func start_winscreen():
+	start_scene("res://win.tscn")
