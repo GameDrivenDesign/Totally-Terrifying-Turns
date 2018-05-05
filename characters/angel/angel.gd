@@ -40,6 +40,5 @@ func on_exited_neighborhood(player):
 func _physics_process(delta):
 	if enemy_state == ENEMY_STATE.following:
 		var direction = calc_direction(followed_player)
-		print(calc_angle(direction))
 		move_and_collide(direction * FOLLOW_SPEED * delta)
 		rotation = calc_angle(direction)

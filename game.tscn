@@ -92,7 +92,6 @@ scale = Vector2( 0.8, 0.8 )
 
 [node name="Path2D2" type="Path2D" parent="." index="4"]
 
-editor/display_folded = true
 curve = SubResource( 1 )
 
 [node name="enemy" parent="Path2D2" index="0" instance=ExtResource( 5 )]
@@ -102,7 +101,6 @@ rotation = 1.48989
 
 [node name="Path2D" type="Path2D" parent="." index="5"]
 
-editor/display_folded = true
 curve = SubResource( 2 )
 
 [node name="enemy" parent="Path2D" index="0" instance=ExtResource( 5 )]
