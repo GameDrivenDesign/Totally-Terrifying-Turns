@@ -103,3 +103,6 @@ func toggle_battery():
 	$flashlight.enabled = !$flashlight.enabled
 	$flashlight/area/shape.disabled = !$flashlight/area/shape.disabled
 	#time_till_flashlight_toggleable = 0.4
+	
+func recharge_battery(amount):
+	battery_status = clamp(battery_status + amount, 0.0, 1.0)
