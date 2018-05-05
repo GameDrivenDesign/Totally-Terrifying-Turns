@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/lightcone01.png" type="Texture" id=2]
-[ext_resource path="res://characters/player/player.png" type="Texture" id=3]
-[ext_resource path="res://characters/player/lightcircle02.png" type="Texture" id=4]
+[ext_resource path="res://sound_effects/beep.wav" type="AudioStream" id=3]
+[ext_resource path="res://characters/player/player.png" type="Texture" id=4]
+[ext_resource path="res://characters/player/lightcircle02.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -38,9 +39,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 radius = 185.937
 
-[node name="player" type="KinematicBody2D" groups=[
-"players",
-]]
+[node name="player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 2
@@ -105,6 +104,18 @@ scale = Vector2( 6.17808, 13.4807 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="audio_player" type="AudioStreamPlayer2D" parent="flashlight" index="1"]
+
+position = Vector2( -9.91369, -2.45604 )
+scale = Vector2( 4.34384, 4.28407 )
+stream = ExtResource( 3 )
+volume_db = -12.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
 [node name="flashlight_animation_player" type="AnimationPlayer" parent="." index="2"]
 
 root_node = NodePath("..")
@@ -118,7 +129,7 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="Sprite" type="Sprite" parent="." index="3"]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="personalLight" type="Light2D" parent="." index="4"]
@@ -126,7 +137,7 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 0.121984, 0.120942 )
 enabled = true
 editor_only = false
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 offset = Vector2( 0, 0 )
 texture_scale = 12.0
 color = Color( 1, 1, 1, 1 )

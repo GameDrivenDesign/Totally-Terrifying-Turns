@@ -46,7 +46,7 @@ func _physics_process(delta):
 	
 func is_something_in_between(pos1, pos2):
 	var space_state = get_world_2d().direct_space_state
-	var intersection = space_state.intersect_ray(pos1, pos2, [self, $flashlight/area/CollisionShape2D, $flashlight/area])
+	var intersection = space_state.intersect_ray(pos1, pos2, [self, $flashlight/area/shape, $flashlight/area])
 	#Debug code for ray casting, shows ray cast intersection point
 	#var s = Sprite.new()
 	#s.texture = preload("res://characters/player/lightcircle01.png")
