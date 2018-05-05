@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://characters/tapir/tapir.gd" type="Script" id=1]
+[ext_resource path="res://characters/tapir/tapir.png" type="Texture" id=2]
+[ext_resource path="res://characters/tapir/tapir_exploded.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 8.34846
+
+[node name="tapir" type="Node2D"]
+
+script = ExtResource( 1 )
+
+[node name="attack_area" type="Area2D" parent="." index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area" index="0"]
+
+position = Vector2( 3.47464, 6.06589 )
+shape = SubResource( 2 )
+
+[node name="base" type="Node2D" parent="." index="1"]
+
+position = Vector2( 0, -0.104673 )
+
+[node name="tapir_normal" type="Sprite" parent="base" index="0"]
+
+position = Vector2( 4.03367, 5.08666 )
+texture = ExtResource( 2 )
+
+[node name="tapir_exploded" type="Sprite" parent="base" index="1"]
+
+visible = false
+position = Vector2( 3.74655, 6.06294 )
+scale = Vector2( 0.614944, 0.647742 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
+
+

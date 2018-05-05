@@ -103,3 +103,6 @@ func toggle_godmode():
 		speed = 15
 	else:
 		speed = BASESPEED
+
+func hit_by_explosion():
+	pass

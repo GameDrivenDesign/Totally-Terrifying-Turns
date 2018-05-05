@@ -40,3 +40,6 @@ func _physics_process(delta):
 		var direction = common.calc_direction(self, followed_player)
 		move_and_collide(direction * FOLLOW_SPEED * delta)
 		rotation = common.calc_angle(direction)
+
+func hit_by_explosion():
+	pass

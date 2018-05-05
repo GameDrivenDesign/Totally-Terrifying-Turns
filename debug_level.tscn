@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/basic_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://maze.gd" type="Script" id=3]
 [ext_resource path="res://torch/torch.tscn" type="PackedScene" id=4]
-[ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/tapir/tapir.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/enemies/hugger/hugger.tscn" type="PackedScene" id=6]
 [ext_resource path="res://characters/enemies/angel/angel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -27,7 +28,7 @@ _data = {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="debug_level" type="Node2D"]
+[node name="debug_level" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -57,10 +58,9 @@ _sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
 position = Vector2( 119.602, 81.0513 )
 
-[node name="player" parent="." index="1" instance=ExtResource( 5 )]
+[node name="tapir" parent="." index="1" instance=ExtResource( 5 )]
 
-position = Vector2( 27.4172, 8.31285 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 132.004, 4.77089 )
 
 [node name="hugger2" type="Path2D" parent="." index="2"]
 
@@ -100,8 +100,13 @@ audio_bus_name = "Master"
 position = Vector2( 119.415, 70.3224 )
 shape = SubResource( 3 )
 
-[connection signal="hit" from="player" to="." method="_on_player_hit"]
+[node name="player" parent="." index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 27.4172, 8.31285 )
+scale = Vector2( 0.8, 0.8 )
 
 [connection signal="body_entered" from="goal_area" to="." method="_on_goal_area_body_entered"]
+
+[connection signal="hit" from="player" to="." method="_on_player_hit"]
 
 
