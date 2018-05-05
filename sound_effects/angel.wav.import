@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/angel.wav-b37c0dae11375ce2648d1165a37ec0d6.sample"
+
+[deps]
+
+source_file="res://sound_effects/angel.wav"
+source_md5="55a3e10fae53f3fdd4a840331982f46e"
+
+dest_files=[ "res://.import/angel.wav-b37c0dae11375ce2648d1165a37ec0d6.sample" ]
+dest_md5="0e2656314aa3c8ff5125eee9a3aa6eb1"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0
