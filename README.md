@@ -21,7 +21,7 @@ Created by
 - Alexander Riese (@querenker)
 - Christian Flach (@cmfcmf)
 - Corinna Jaschek (@corinnaj)
-- Eric Giese (@citron0xa9)
+- Erik Giese (@citron0xa9)
 - Eva Krebs (@ekrebs5)
 - Sebastian Schulz (@blblblu)
 
