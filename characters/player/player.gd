@@ -20,16 +20,19 @@ func _process(delta):
 		rotation_degrees = 270
 		direction = Vector2(0, -1)
 		
+	if Input.is_action_just_pressed("toggle_flashlight"):
+		get_node("flashlight").enabled = !get_node("flashlight").enabled
+		
 	var distance = speed * delta * direction
 	move_and_collide(distance)
 
 func _on_flashlight_area_body_entered(body):
-	if body.is_in_group("enemy_flashlight_collider"):
+	if get_node("flashlight").enabled and body.is_in_group("enemy_flashlight_collider"):
 		body.on_entered_light(self)
 
 
 func _on_flashlight_area_body_exited(body):
-	if body.is_in_group("enemy_flashlight_collider"):
+	if get_node("flashlight").enabled and body.is_in_group("enemy_flashlight_collider"):
 		body.on_exited_light(self)
 
 
