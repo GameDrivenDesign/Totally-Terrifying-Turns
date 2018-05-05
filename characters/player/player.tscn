@@ -23,11 +23,11 @@ radius = 185.937
 [node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+collision_mask = 3
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
 speed = 40
 
 [node name="collision_shape" type="CollisionShape2D" parent="." index="0"]

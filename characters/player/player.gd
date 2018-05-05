@@ -1,9 +1,11 @@
-extends Node2D
+extends KinematicBody2D
 
 export (float, 0, 100, 0.1) var speed = 40
 
 func _ready():
-	pass
+	if (config.no_enemy_collision):
+		set_collision_mask_bit(1, false)
+		set_collision_layer_bit(1, false)
 
 func _process(delta):
 	var direction = Vector2()
