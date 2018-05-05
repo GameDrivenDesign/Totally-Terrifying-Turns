@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://win.gd" type="Script" id=1]
+[ext_resource path="res://fonts/pixel_font.tres" type="DynamicFont" id=2]
+
+[node name="Node" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="youwin" type="Label" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 375.0
+margin_top = 18.0
+margin_right = 634.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Congratulations, you win!"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="entertorestart" type="Label" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 373.0
+margin_top = 75.0
+margin_right = 623.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Press enter to play again"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="credits" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 12.0
+margin_top = 145.0
+margin_right = 882.0
+margin_bottom = 590.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Credits
+
+This game was created at Hasso-Plattner-Institute's second gamejam (May 4 and 5, 2018).
+
+Created by
+- Alexander Riese (@querenker)
+- Christian Flach (@cmfcmf)
+- Corinna Jaschek (@corinnaj)
+- Eric Giese (@citron0xa9)
+- Eva Krebs (@ekrebs5)
+- Sebastian Schulz (@blblblu)
+
+Art Credit
+- 16x16 Dungeon Tileset by Robert (https://0x72.itch.io)
+- Music from https://opengameart.org/content/cc0-music 
+  (TODO: Credit individual authors when we decided on the music to use)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
