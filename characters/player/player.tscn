@@ -39,7 +39,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 radius = 185.937
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1

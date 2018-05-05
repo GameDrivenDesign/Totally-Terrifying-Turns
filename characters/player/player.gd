@@ -2,10 +2,15 @@ extends Node2D
 
 export (float, 0, 100, 0.1) var speed = 40
 
+var time_till_flashlight_toggleable = 0.2
+
 func _ready():
+	get_node("flashlight").enabled = true
 	get_node("flashlight_animation_player").play("flickering")
 
 func _process(delta):
+	time_till_flashlight_toggleable -= delta
+	
 	var direction = Vector2()
 	if(Input.is_action_pressed("move_left")):
 		rotation_degrees = 180
@@ -20,7 +25,7 @@ func _process(delta):
 		rotation_degrees = 270
 		direction = Vector2(0, -1)
 		
-	if Input.is_action_just_pressed("toggle_flashlight"):
+	if Input.is_action_just_pressed("toggle_flashlight") and time_till_flashlight_toggleable <= 0:
 		get_node("flashlight").enabled = !get_node("flashlight").enabled
 		
 	var distance = speed * delta * direction
