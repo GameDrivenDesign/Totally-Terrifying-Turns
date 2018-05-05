@@ -2,6 +2,8 @@ extends Node2D
 
 export (float, 0, 100, 0.1) var speed = 40
 
+var enemies_in_flashlight_area = []
+
 func _ready():
 	get_node("flashlight_animation_player").play("flickering")
 
@@ -26,6 +28,13 @@ func _process(delta):
 	var distance = speed * delta * direction
 	move_and_collide(distance)
 	
+func _physics_process(delta):
+	if get_node("flashlight"):
+		for enemy in enemies_in_flashlight_area:
+			if not is_something_in_between(global_position, enemy.global_position):
+				enemy.on_entered_light(self)	
+		
+	
 func is_something_in_between(pos1, pos2):
 	var space_state = get_world_2d().direct_space_state
 	var intersection = space_state.intersect_ray(pos1, pos2, [self, $flashlight/area/CollisionShape2D, $flashlight/area])
@@ -41,12 +50,13 @@ func is_something_in_between(pos1, pos2):
 	return distance > 1
 
 func _on_flashlight_area_body_entered(body):
-	if get_node("flashlight").enabled and body.is_in_group("enemy_flashlight_collider") and not is_something_in_between(global_position, body.global_position):
-		body.on_entered_light(self)
+	if get_node("flashlight").enabled and body.is_in_group("enemy_flashlight_collider"):
+		enemies_in_flashlight_area.push_back(body)
 
 
 func _on_flashlight_area_body_exited(body):
 	if get_node("flashlight").enabled and body.is_in_group("enemy_flashlight_collider"):
+		enemies_in_flashlight_area.remove(enemies_in_flashlight_area.find(body))
 		body.on_exited_light(self)
 
 
@@ -57,4 +67,4 @@ func _on_neighborhood_area_body_entered(body):
 
 func _on_neighborhood_area_body_exited(body):
 	if body.is_in_group("enemy_neighborhood_collider"):
-		body.on_exited_neighborhood(self)
+		body.on_exited_neighborhood(self)		
