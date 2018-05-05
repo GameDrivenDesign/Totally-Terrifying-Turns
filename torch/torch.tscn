@@ -23,7 +23,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 11.084 )
+extents = Vector2( 4.76728, 6.06871 )
 
 [sub_resource type="Animation" id=3]
 
@@ -111,7 +111,7 @@ _sections_unfolded = [ "Collision" ]
 
 frames = SubResource( 1 )
 animation = "default"
-frame = 5
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -157,7 +157,7 @@ blend_times = [  ]
 
 [node name="Particles2D" type="Particles2D" parent="." index="4"]
 
-position = Vector2( -0.628052, 1.46544 )
+position = Vector2( 2, -1 )
 emitting = true
 amount = 3
 lifetime = 1.0

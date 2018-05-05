@@ -198,14 +198,14 @@ smoothing_enabled = true
 smoothing_speed = 5.0
 offset_v = 0.0
 offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Smoothing", "Transform" ]
+_sections_unfolded = [ "Drag Margin", "Offset", "Smoothing", "Transform" ]
 
 [node name="hitbox" type="Area2D" parent="." index="7"]
 
