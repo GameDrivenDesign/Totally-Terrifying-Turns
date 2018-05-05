@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/death_scream.wav-086794c5135847bae3b7298b3a40ee5b.sample"
+
+[deps]
+
+source_file="res://sound_effects/death_scream.wav"
+source_md5="adaa1c46c7106922d1596278413177dd"
+
+dest_files=[ "res://.import/death_scream.wav-086794c5135847bae3b7298b3a40ee5b.sample" ]
+dest_md5="cc3dd7a17602c7afc73aefa680ced8a4"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
