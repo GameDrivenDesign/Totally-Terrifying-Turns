@@ -4,10 +4,16 @@ signal hit
 
 export (float, 0, 100, 0.1) var speed = 40
 
+const BASESPEED = 5
+
 var enemies_in_flashlight_area = []
 var time_till_flashlight_toggleable = 0.2
+var is_in_godmode
+var movement_speed
 
 func _ready():
+	is_in_godmode = false
+	speed = BASESPEED
 	if (config.no_enemy_collision):
 		set_collision_mask_bit(1, false)
 		set_collision_layer_bit(1, false)
@@ -19,17 +25,20 @@ func _process(delta):
 	var direction = Vector2()
 	if(Input.is_action_pressed("move_left")):
 		rotation_degrees = 180
-		direction = Vector2(-1, 0)
+		direction = Vector2(-speed, 0)
 	elif(Input.is_action_pressed("move_right")):
 		rotation_degrees = 0
-		direction = Vector2(1, 0)
+		direction = Vector2(speed, 0)
 	elif(Input.is_action_pressed("move_down")):
 		rotation_degrees = 90
-		direction = Vector2(0, 1)
+		direction = Vector2(0, speed)
 	elif(Input.is_action_pressed("move_up")):
 		rotation_degrees = 270
-		direction = Vector2(0, -1)
-		
+		direction = Vector2(0, -speed)
+	
+	if Input.is_action_just_pressed("toggle_godmode"):
+		toggle_godmode()
+	
 	if Input.is_action_just_pressed("toggle_flashlight") and time_till_flashlight_toggleable <= 0:
 		$flashlight.enabled = !$flashlight.enabled
 		$flashlight/area/shape.disabled = !$flashlight/area/shape.disabled
@@ -37,7 +46,10 @@ func _process(delta):
 		#time_till_flashlight_toggleable = 0.4
 		
 	var distance = speed * delta * direction
-	move_and_collide(distance)
+	if(is_in_godmode):
+		translate(distance)
+	else:
+		move_and_collide(distance)
 	
 func _physics_process(delta):
 	if $flashlight.enabled:
@@ -84,3 +96,10 @@ func _on_neighborhood_area_body_exited(body):
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("killing_enemies"):
 		emit_signal("hit")
+
+func toggle_godmode():
+	is_in_godmode = not is_in_godmode
+	if(is_in_godmode):
+		speed = 15
+	else:
+		speed = BASESPEED
