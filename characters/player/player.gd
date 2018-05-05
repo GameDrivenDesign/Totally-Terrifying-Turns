@@ -3,7 +3,7 @@ extends Node2D
 export (float, 0, 100, 0.1) var speed = 40
 
 func _ready():
-	pass
+	get_node("flashlight_animation_player").play("flickering")
 
 func _process(delta):
 	var direction = Vector2()
