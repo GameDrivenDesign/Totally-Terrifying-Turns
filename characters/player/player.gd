@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 signal hit
 
+const BATTERY_USAGE = 0.032
+
 export (float, 0, 100, 0.1) var speed = 40
 
 const BASESPEED = 5
@@ -10,6 +12,9 @@ var enemies_in_flashlight_area = []
 var time_till_flashlight_toggleable = 0.2
 var is_in_godmode
 var movement_speed
+
+var battery_on = true
+var battery_status = 1.0
 
 func _ready():
 	is_in_godmode = false
@@ -21,6 +26,14 @@ func _ready():
 
 func _process(delta):
 	time_till_flashlight_toggleable -= delta
+	
+	if battery_on:
+		battery_status -= delta * BATTERY_USAGE
+		if battery_status <= 0.0:
+			battery_status = 0.0
+			toggle_battery()
+		
+	$hud/battery_status_label.text = "power left: " + String(int(battery_status * 10 + 0.5) * 10) + "%"
 	
 	var direction = Vector2()
 	if(Input.is_action_pressed("move_left")):
@@ -40,10 +53,9 @@ func _process(delta):
 		toggle_godmode()
 	
 	if Input.is_action_just_pressed("toggle_flashlight") and time_till_flashlight_toggleable <= 0:
-		$flashlight.enabled = !$flashlight.enabled
-		$flashlight/area/shape.disabled = !$flashlight/area/shape.disabled
-		$flashlight/audio_player.play()
-		#time_till_flashlight_toggleable = 0.4
+		#$flashlight/audio_player.play()
+		if battery_status > 0.0:
+			toggle_battery()
 		
 	var distance = speed * delta * direction
 	if(is_in_godmode):
@@ -96,6 +108,18 @@ func _on_neighborhood_area_body_exited(body):
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("killing_enemies"):
 		emit_signal("hit")
+
+func toggle_battery():
+	$flashlight/audio_player.play()
+	battery_on = !battery_on
+	$flashlight.enabled = !$flashlight.enabled
+	$flashlight/area/shape.disabled = !$flashlight/area/shape.disabled
+	#time_till_flashlight_toggleable = 0.4
+	
+func recharge_battery(amount):
+	battery_status = clamp(battery_status + amount, 0.0, 1.0)
+	$flashlight/audio_player.play()
+	
 
 func toggle_godmode():
 	is_in_godmode = not is_in_godmode

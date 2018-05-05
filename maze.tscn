@@ -1,17 +1,47 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/basic_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://maze.gd" type="Script" id=3]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://torch/torch.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/enemies/hugger/hugger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://characters/enemies/angel/angel.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Node" type="Node"]
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 60.2153, 0, 0, 0, 0, 0, 0, 3.26749 )
+}
+
+[sub_resource type="Curve2D" id=3]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0.466782, 0.933563, 0, 0, 0, 0, -17.2711, 0.933563, 0, 0, 0, 0, -16.3375, -31.2746, 0, 0, 0, 0, 32.2082, -31.2746, 0, 0, 0, 0, 33.1418, 64.4164, 0, 0, 0, 0, -14.9371, 63.4828, 0, 0, 0, 0, -17.2711, 31.7414, 0, 0, 0, 0, -0.466797, 31.7414 )
+}
+
+[sub_resource type="Curve2D" id=4]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 439.28, 563.776, 0, 0, 0, 0, 551.589, 565.746, 0, 0, 0, 0, 552.574, 531.266, 0, 0, 0, 0, 441.25, 535.206 )
+}
+
+[sub_resource type="Curve2D" id=5]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 152.203, 24.6941, 0, 0, 0, 0, 212.298, 24.6941 )
+}
+
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -44,6 +74,7 @@ scale = Vector2( 0.8, 0.8 )
 
 [node name="goal_area" type="Area2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 984, 249 )
 scale = Vector2( 1.4375, 1.28125 )
 input_pickable = true
@@ -92,7 +123,7 @@ position = Vector2( 264, 167 )
 
 [node name="torch5" parent="torches" index="7" instance=ExtResource( 5 )]
 
-position = Vector2( 152, 39 )
+position = Vector2( 152, 36.4155 )
 
 [node name="torch3" parent="torches" index="8" instance=ExtResource( 5 )]
 
@@ -193,6 +224,60 @@ position = Vector2( 840, 375 )
 [node name="torch24" parent="torches" index="32" instance=ExtResource( 5 )]
 
 position = Vector2( 712, 311 )
+
+[node name="enemies" type="Node" parent="." index="4"]
+
+editor/display_folded = true
+
+[node name="hugger_path" type="Path2D" parent="enemies" index="0"]
+
+editor/display_folded = true
+position = Vector2( 153.52, 104.242 )
+curve = SubResource( 2 )
+
+[node name="hugger" parent="enemies/hugger_path" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 60.2153, 0 )
+rotation = 3.08738
+
+[node name="angel" parent="enemies" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 78.8867, 239.461 )
+
+[node name="hugger_path2" type="Path2D" parent="enemies" index="2"]
+
+editor/display_folded = true
+position = Vector2( 71.7394, 488.687 )
+curve = SubResource( 3 )
+
+[node name="hugger" parent="enemies/hugger_path2" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 0.466782, 0.933563 )
+
+[node name="angel2" parent="enemies" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( 200.579, 243.73 )
+
+[node name="hugger_path3" type="Path2D" parent="enemies" index="4"]
+
+editor/display_folded = true
+curve = SubResource( 4 )
+
+[node name="hugger" parent="enemies/hugger_path3" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 439.28, 563.776 )
+rotation = 0.0175426
+
+[node name="hugger_path4" type="Path2D" parent="enemies" index="5"]
+
+curve = SubResource( 5 )
+
+[node name="hugger" parent="enemies/hugger_path4" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 152.203, 24.6941 )
+rotation = 0.0
+
+[connection signal="hit" from="player" to="." method="_on_player_hit"]
 
 [connection signal="body_entered" from="goal_area" to="." method="_on_goal_area_body_entered"]
 

@@ -7,7 +7,8 @@
 [ext_resource path="res://characters/tapir/tapir.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/enemies/hugger/hugger.tscn" type="PackedScene" id=6]
 [ext_resource path="res://characters/enemies/angel/angel.tscn" type="PackedScene" id=7]
-[ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=8]
+
+[ext_resource path="res://battery/battery.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -100,13 +101,16 @@ audio_bus_name = "Master"
 position = Vector2( 119.415, 70.3224 )
 shape = SubResource( 3 )
 
-[node name="player" parent="." index="6" instance=ExtResource( 8 )]
+[node name="battery" parent="." index="6" instance=ExtResource( 8 )]
 
-position = Vector2( 27.4172, 8.31285 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 133.958, 5.33876 )
+
+[node name="battery2" parent="." index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 75.8835, 6.77269 )
+
+[connection signal="hit" from="player" to="." method="_on_player_hit"]
 
 [connection signal="body_entered" from="goal_area" to="." method="_on_goal_area_body_entered"]
 
 [connection signal="hit" from="player" to="." method="_on_player_hit"]
-
-
