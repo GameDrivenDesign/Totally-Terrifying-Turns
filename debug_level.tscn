@@ -27,7 +27,7 @@ _data = {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="debug_level" type="Node2D"]
+[node name="debug_level" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -99,6 +99,8 @@ audio_bus_name = "Master"
 
 position = Vector2( 119.415, 70.3224 )
 shape = SubResource( 3 )
+
+[connection signal="hit" from="player" to="." method="_on_player_hit"]
 
 [connection signal="body_entered" from="goal_area" to="." method="_on_goal_area_body_entered"]
 

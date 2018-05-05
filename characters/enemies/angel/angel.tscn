@@ -12,6 +12,8 @@ radius = 4.71644
 [node name="angel" type="KinematicBody2D" index="0" groups=[
 "enemy_flashlight_collider",
 "enemy_neighborhood_collider",
+"enemy_flashlight_collider",
+"killing_enemies",
 ]]
 
 input_pickable = false

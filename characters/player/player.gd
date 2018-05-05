@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal hit
+
 export (float, 0, 100, 0.1) var speed = 40
 
 var enemies_in_flashlight_area = []
@@ -77,3 +79,8 @@ func _on_neighborhood_area_body_entered(body):
 func _on_neighborhood_area_body_exited(body):
 	if body.is_in_group("enemy_neighborhood_collider"):
 		body.on_exited_neighborhood(self)		
+
+
+func _on_hitbox_body_entered(body):
+	if body.is_in_group("killing_enemies"):
+		emit_signal("hit")
