@@ -10,7 +10,7 @@ source_file="res://characters/tapir.png"
 source_md5="f3cd3b6fab7cd74e6488f2ba0e10d42c"
 
 dest_files=[ "res://.import/tapir.png-d21c8d954ba0274a61e8cf1093c961c8.stex" ]
-dest_md5="b15e5a743eed8a067559eab71731748f"
+dest_md5="e5268f3fd75d0847e1e2b6525c03197c"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
