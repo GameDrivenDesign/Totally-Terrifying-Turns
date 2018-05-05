@@ -14,6 +14,10 @@ config/name="TotallyTerrifyingTurns"
 run/main_scene="res://intro.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+config="*res://config.gd"
+
 [input]
 
 move_left=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
@@ -34,4 +38,5 @@ toggle_flashlight=[ Object(InputEventKey,"resource_local_to_scene":false,"resour
 [rendering]
 
 environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_clear_color=Color( 0.472656, 0.472656, 0.472656, 1 )
 environment/default_environment="res://default_env.tres"

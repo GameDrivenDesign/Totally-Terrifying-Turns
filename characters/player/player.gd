@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 
 export (float, 0, 100, 0.1) var speed = 40
 
@@ -6,6 +6,9 @@ var enemies_in_flashlight_area = []
 var time_till_flashlight_toggleable = 0.2
 
 func _ready():
+	if (config.no_enemy_collision):
+		set_collision_mask_bit(1, false)
+		set_collision_layer_bit(1, false)
 	$flashlight_animation_player.play("flickering")
 
 func _process(delta):
