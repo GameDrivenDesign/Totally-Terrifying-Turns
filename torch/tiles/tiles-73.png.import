@@ -10,7 +10,7 @@ source_file="res://torch/tiles/tiles-73.png"
 source_md5="eadc6fd03855b859dc4eafc141963b82"
 
 dest_files=[ "res://.import/tiles-73.png-5b7c84c7dd4454b34a5d4ce9a264693b.stex" ]
-dest_md5="68501fed1c350cee8d3d0104feef5257"
+dest_md5="31f4370166b506460321effa09ff0041"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

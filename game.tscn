@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/basic_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://maze.gd" type="Script" id=3]
 [ext_resource path="res://torch/torch.tscn" type="PackedScene" id=4]
-[ext_resource path="res://characters/player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://characters/enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/enemies/hugger/hugger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://characters/enemies/angel/angel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://music.gd" type="Script" id=8]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -58,6 +60,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="maze" type="TileMap" parent="." index="2"]
 
+editor/display_folded = true
 mode = 0
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
@@ -106,5 +109,18 @@ curve = SubResource( 2 )
 
 position = Vector2( 37.2696, 41.9925 )
 rotation = 3.14159
+
+[node name="KinematicBody2D" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 27.3752, 134.703 )
+
+[node name="music" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+script = ExtResource( 8 )
 
 

@@ -1,0 +1,141 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://characters/player/player.gd" type="Script" id=1]
+[ext_resource path="res://characters/player/lightcone01.png" type="Texture" id=2]
+[ext_resource path="res://characters/player/player.png" type="Texture" id=3]
+[ext_resource path="res://characters/player/lightcircle01.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5.80276, 6.68023 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 185.937
+
+[node name="player" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+speed = 40
+
+[node name="collision_shape" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 0.685593, 0.0780315 )
+scale = Vector2( 0.94418, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="flashlight" type="Light2D" parent="." index="1"]
+
+position = Vector2( 2.28224, 0.573296 )
+scale = Vector2( 0.230211, 0.233423 )
+enabled = true
+editor_only = false
+texture = ExtResource( 2 )
+offset = Vector2( 233, -7 )
+texture_scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.4
+shadow_filter = 3
+shadow_filter_smooth = 4.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Shadow", "Transform" ]
+
+[node name="area" type="Area2D" parent="flashlight" index="0"]
+
+position = Vector2( 525.186, -81.5168 )
+scale = Vector2( 2.55371, 2.09671 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flashlight/area" index="0"]
+
+position = Vector2( -81.8826, 38.7309 )
+rotation = 4.71239
+scale = Vector2( 6.17808, 13.4807 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="personalLight" type="Light2D" parent="." index="3"]
+
+position = Vector2( 2.08155, 1.25916 )
+scale = Vector2( 0.121984, 0.120942 )
+enabled = true
+editor_only = false
+texture = ExtResource( 4 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+
+[node name="neighborhood" type="Area2D" parent="." index="4"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="neighborhood" index="0"]
+
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="flashlight/area" to="." method="_on_flashlight_area_body_entered"]
+
+[connection signal="body_exited" from="flashlight/area" to="." method="_on_flashlight_area_body_exited"]
+
+[connection signal="body_entered" from="neighborhood" to="." method="_on_neighborhood_area_body_entered"]
+
+[connection signal="body_exited" from="neighborhood" to="." method="_on_neighborhood_area_body_exited"]
+
+

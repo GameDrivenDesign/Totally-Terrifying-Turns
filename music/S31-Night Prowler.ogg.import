@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/S31-Night Prowler.ogg-945b823d98e145a4d6fc9591dcd54e2c.oggstr"
+
+[deps]
+
+source_file="res://music/S31-Night Prowler.ogg"
+source_md5="5a72723da5b1f46d468b5e839e99fa5e"
+
+dest_files=[ "res://.import/S31-Night Prowler.ogg-945b823d98e145a4d6fc9591dcd54e2c.oggstr" ]
+dest_md5="65e14f547bde0f041cc26a2095b72dc5"
+
+[params]
+
+loop=true
+loop_offset=0

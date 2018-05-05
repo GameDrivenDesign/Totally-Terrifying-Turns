@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/S31-Closing In.ogg-f3c029a90d713f9c027f1149ce4ced12.oggstr"
+
+[deps]
+
+source_file="res://music/S31-Closing In.ogg"
+source_md5="ce7dd028499dbd3943ea45df261fc52f"
+
+dest_files=[ "res://.import/S31-Closing In.ogg-f3c029a90d713f9c027f1149ce4ced12.oggstr" ]
+dest_md5="c5312083cc3f445828dd8fb2e9b9e1cb"
+
+[params]
+
+loop=true
+loop_offset=0
