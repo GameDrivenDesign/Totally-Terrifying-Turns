@@ -5,8 +5,7 @@ export (float, 0, 100, 0.1) var speed = 40
 var time_till_flashlight_toggleable = 0.2
 
 func _ready():
-	get_node("flashlight").enabled = true
-	get_node("flashlight_animation_player").play("flickering")
+	$flashlight_animation_player.play("flickering")
 
 func _process(delta):
 	time_till_flashlight_toggleable -= delta
@@ -26,7 +25,7 @@ func _process(delta):
 		direction = Vector2(0, -1)
 		
 	if Input.is_action_just_pressed("toggle_flashlight") and time_till_flashlight_toggleable <= 0:
-		get_node("flashlight").enabled = !get_node("flashlight").enabled
+		$flashlight.enabled = !$flashlight.enabled
 		
 	var distance = speed * delta * direction
 	move_and_collide(distance)
@@ -46,12 +45,12 @@ func is_something_in_between(pos1, pos2):
 	return distance > 1
 
 func _on_flashlight_area_body_entered(body):
-	if get_node("flashlight").enabled and body.is_in_group("enemy_flashlight_collider") and not is_something_in_between(global_position, body.global_position):
+	if $flashlight.enabled and body.is_in_group("enemy_flashlight_collider") and not is_something_in_between(global_position, body.global_position):
 		body.on_entered_light(self)
 
 
 func _on_flashlight_area_body_exited(body):
-	if get_node("flashlight").enabled and body.is_in_group("enemy_flashlight_collider"):
+	if $flashlight.enabled and body.is_in_group("enemy_flashlight_collider"):
 		body.on_exited_light(self)
 
 
