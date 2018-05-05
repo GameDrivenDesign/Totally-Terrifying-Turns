@@ -118,6 +118,8 @@ func toggle_battery():
 	
 func recharge_battery(amount):
 	battery_status = clamp(battery_status + amount, 0.0, 1.0)
+	$flashlight/audio_player.play()
+	
 
 func toggle_godmode():
 	is_in_godmode = not is_in_godmode
