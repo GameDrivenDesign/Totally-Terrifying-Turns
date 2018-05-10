@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="TotallyTerrifyingTurns"
-run/main_scene="res://intro.tscn"
+run/main_scene="res://intro/intro.tscn"
 config/icon="res://icon.png"
 
 [autoload]

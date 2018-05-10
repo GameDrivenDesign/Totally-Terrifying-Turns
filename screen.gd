@@ -20,7 +20,7 @@ func start_game():
 	start_scene("res://game.tscn")
 
 func start_intro():
-	start_scene("res://intro.tscn")
+	start_scene("res://intro/intro.tscn")
 
 func start_gameoverscreen():
 	start_scene("res://gameover.tscn")

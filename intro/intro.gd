@@ -1,5 +1,7 @@
 extends "res://screen.gd"
 
+onready var intro_player = get_node("intro_player")
+
 func _ready():
 	if OS.has_feature('JavaScript'):
 		# Maximize game in browsers, because fullscreen
@@ -10,15 +12,10 @@ func _ready():
 		# a debug build.
 		OS.window_fullscreen = true
 
-	$start_timer.start()
-
-func _on_intro_player_animation_finished(anim_name):
-	if anim_name == "typing":
-		get_node("intro_player").play("typing_enter")
-
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		start_game()
 
 func _on_start_timer_timeout():
-	get_node("intro_player").play("typing")
+	intro_player.animation_set_next("typing", "typing_enter")
+	intro_player.play("typing")
