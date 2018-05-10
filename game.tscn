@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://CanvasModulate.gd" type="Script" id=2]
 [ext_resource path="res://music.gd" type="Script" id=3]
-[ext_resource path="res://lightning/lightning.tscn" type="PackedScene" id=4]
 
 [node name="game" type="Node"]
 
@@ -23,10 +22,6 @@ mix_target = 0
 bus = "Master"
 script = ExtResource( 3 )
 
-[node name="lightning" parent="." index="2" instance=ExtResource( 4 )]
-
-position = Vector2( 96.7276, 72.1511 )
-
-[node name="level_navigation" type="Navigation2D" parent="." index="3"]
+[node name="level_navigation" type="Navigation2D" parent="." index="2"]
 
 
