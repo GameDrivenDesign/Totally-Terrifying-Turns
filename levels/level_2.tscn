@@ -16,18 +16,18 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=2]
 
 offsets = PoolRealArray( 0.0177515, 1 )
 colors = PoolColorArray( 0, 0.582031, 0.0227356, 1, 0.5, 1, 0, 1 )
 
-[sub_resource type="GradientTexture" id=7]
+[sub_resource type="GradientTexture" id=3]
 
 flags = 4
-gradient = SubResource( 6 )
+gradient = SubResource( 2 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 1
@@ -57,7 +57,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.0
-color_ramp = SubResource( 7 )
+color_ramp = SubResource( 3 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -67,35 +67,35 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Animation", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Scale", "Spread", "Trail" ]
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=5]
 
 bake_interval = 5.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 60.2153, 0, 0, 0, 0, 0, 0, 3.26749 )
 }
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=6]
 
 bake_interval = 5.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0.466782, 0.933563, 0, 0, 0, 0, -17.2711, 0.933563, 0, 0, 0, 0, -16.3375, -31.2746, 0, 0, 0, 0, 32.2082, -31.2746, 0, 0, 0, 0, 33.1418, 64.4164, 0, 0, 0, 0, -14.9371, 63.4828, 0, 0, 0, 0, -17.2711, 31.7414, 0, 0, 0, 0, -0.466797, 31.7414 )
 }
 
-[sub_resource type="Curve2D" id=4]
+[sub_resource type="Curve2D" id=7]
 
 bake_interval = 5.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 439.28, 563.776, 0, 0, 0, 0, 551.589, 565.746, 0, 0, 0, 0, 552.574, 531.266, 0, 0, 0, 0, 441.25, 535.206 )
 }
 
-[sub_resource type="Curve2D" id=5]
+[sub_resource type="Curve2D" id=8]
 
 bake_interval = 5.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 152.203, 24.6941, 0, 0, 0, 0, 212.298, 24.6941 )
 }
 
-[node name="level_2" type="Node"]
+[node name="level_2" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -123,6 +123,7 @@ _sections_unfolded = [ "Cell", "Occluder", "Transform" ]
 
 [node name="goal_area" type="Area2D" parent="." index="1"]
 
+visible = false
 position = Vector2( 984, 249 )
 scale = Vector2( 1.4375, 1.28125 )
 input_pickable = true
@@ -135,11 +136,13 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="goal_area" index="0"]
 
+visible = false
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Particles2D" type="Particles2D" parent="goal_area" index="1"]
 
+visible = false
 emitting = true
 amount = 20
 lifetime = 4.0
@@ -153,7 +156,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 8 )
+process_material = SubResource( 4 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -298,13 +301,11 @@ position = Vector2( 712, 311 )
 
 [node name="enemies" type="Node" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="hugger_path" type="Path2D" parent="enemies" index="0"]
 
 editor/display_folded = true
 position = Vector2( 153.52, 104.242 )
-curve = SubResource( 2 )
+curve = SubResource( 5 )
 
 [node name="hugger" parent="enemies/hugger_path" index="0" instance=ExtResource( 5 )]
 
@@ -319,7 +320,7 @@ position = Vector2( 78.8867, 239.461 )
 
 editor/display_folded = true
 position = Vector2( 71.7394, 488.687 )
-curve = SubResource( 3 )
+curve = SubResource( 6 )
 
 [node name="hugger" parent="enemies/hugger_path2" index="0" instance=ExtResource( 5 )]
 
@@ -333,16 +334,16 @@ position = Vector2( 200.579, 243.73 )
 [node name="hugger_path3" type="Path2D" parent="enemies" index="4"]
 
 editor/display_folded = true
-curve = SubResource( 4 )
+curve = SubResource( 7 )
 
 [node name="hugger" parent="enemies/hugger_path3" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 439.28, 563.776 )
-rotation = 0.0175578
+rotation = 0.0175423
 
 [node name="hugger_path4" type="Path2D" parent="enemies" index="5"]
 
-curve = SubResource( 5 )
+curve = SubResource( 8 )
 
 [node name="hugger" parent="enemies/hugger_path4" index="0" instance=ExtResource( 5 )]
 
@@ -379,7 +380,7 @@ position = Vector2( 121.29, 376.367 )
 
 [node name="angel10" parent="enemies" index="13" instance=ExtResource( 6 )]
 
-position = Vector2( 72.3534, 296.762 )
+position = Vector2( 71.1559, 184.199 )
 
 [node name="angel11" parent="enemies" index="14" instance=ExtResource( 6 )]
 
@@ -425,11 +426,12 @@ position = Vector2( 102.167, 217.602 )
 
 [node name="battery3" parent="items" index="2" instance=ExtResource( 7 )]
 
+visible = false
 position = Vector2( 100.177, 262.715 )
 
 [node name="battery4" parent="items" index="3" instance=ExtResource( 7 )]
 
-position = Vector2( 58.4411, 265.353 )
+position = Vector2( 58.4411, 264.156 )
 
 [node name="battery5" parent="items" index="4" instance=ExtResource( 7 )]
 
@@ -509,8 +511,6 @@ position = Vector2( 206, 501 )
 
 [node name="tapirs" type="Node" parent="." index="5"]
 
-editor/display_folded = true
-
 [node name="tapir" parent="tapirs" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 164.661, 254.342 )
@@ -537,7 +537,7 @@ position = Vector2( 365.651, 409.972 )
 
 [node name="tapir7" parent="tapirs" index="6" instance=ExtResource( 8 )]
 
-position = Vector2( 48.7534, 176.177 )
+position = Vector2( 84.0789, 289.937 )
 
 [node name="tapir8" parent="tapirs" index="7" instance=ExtResource( 8 )]
 
@@ -585,11 +585,13 @@ position = Vector2( -95.8087, 89.9252 )
 
 [node name="player" parent="." index="6" instance=ExtResource( 9 )]
 
+visible = false
 position = Vector2( 23.9494, 24.0313 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="key" parent="." index="7" instance=ExtResource( 10 )]
 
+visible = false
 position = Vector2( 88.3293, 56.2732 )
 scale = Vector2( 0.8, 0.8 )
 _sections_unfolded = [ "Pause", "Transform" ]
