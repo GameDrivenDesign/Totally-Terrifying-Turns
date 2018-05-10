@@ -513,13 +513,11 @@ position = Vector2( -95.8087, 89.9252 )
 
 [node name="player" parent="." index="6" instance=ExtResource( 9 )]
 
-visible = false
 position = Vector2( 23.9494, 24.0313 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="key" parent="." index="7" instance=ExtResource( 10 )]
 
-visible = false
 position = Vector2( 88.3293, 56.2732 )
 scale = Vector2( 0.8, 0.8 )
 _sections_unfolded = [ "Pause", "Transform" ]

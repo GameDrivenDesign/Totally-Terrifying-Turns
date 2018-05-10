@@ -257,8 +257,6 @@ shape = SubResource( 5 )
 
 [node name="lightning" parent="." index="9" instance=ExtResource( 7 )]
 
-position = Vector2( 0, 0 )
-
 [connection signal="body_entered" from="flashlight/area" to="." method="_on_flashlight_area_body_entered"]
 
 [connection signal="body_exited" from="flashlight/area" to="." method="_on_flashlight_area_body_exited"]
