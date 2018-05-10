@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://levels/level.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/basic_tileset.tres" type="TileSet" id=2]
@@ -30,7 +30,58 @@ _data = {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="level_1" type="Node2D"]
+[sub_resource type="Gradient" id=6]
+
+offsets = PoolRealArray( 0.0177515, 1 )
+colors = PoolColorArray( 0, 0.582031, 0.0227356, 1, 0.5, 1, 0, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+
+flags = 4
+gradient = SubResource( 6 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=8]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 10, 10, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 7 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Animation", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Scale", "Spread", "Trail" ]
+
+[node name="level_1" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -91,7 +142,7 @@ position = Vector2( 27.3752, 134.703 )
 
 [node name="goal_area" type="Area2D" parent="." index="5"]
 
-editor/display_folded = true
+position = Vector2( 119.415, 70.3224 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -99,11 +150,34 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="goal_area" index="0"]
 
-position = Vector2( 119.415, 70.3224 )
 shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Particles2D" type="Particles2D" parent="goal_area" index="1"]
+
+emitting = true
+amount = 20
+lifetime = 4.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 8 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material" ]
 
 [node name="key" parent="." index="6" instance=ExtResource( 8 )]
 
