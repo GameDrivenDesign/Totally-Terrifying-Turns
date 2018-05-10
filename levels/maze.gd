@@ -76,6 +76,12 @@ func _on_door_area_entered(body):
 		if body.keys >= 1:
 			for door_area in door_areas:
 				if door_area.overlaps_body(body):
-					get_cellv(world_to_map(door_area.global_position))
-					set_cellv(world_to_map(door_area.global_position), get_tileset().find_tile_by_name("door_open"))
+					var door_pos = world_to_map(door_area.global_position)
+					set_cellv(
+						door_pos,
+						get_tileset().find_tile_by_name("door_open"),
+						is_cell_x_flipped(door_pos.x, door_pos.y),
+						is_cell_y_flipped(door_pos.x, door_pos.y),
+						is_cell_transposed(door_pos.x, door_pos.y)
+					)
 					body.keys = body.keys - 1
