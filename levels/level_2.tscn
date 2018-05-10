@@ -1,13 +1,15 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://levels/level.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/basic_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://levels/maze.gd" type="Script" id=3]
-[ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://torch/torch.tscn" type="PackedScene" id=5]
-[ext_resource path="res://characters/enemies/hugger/hugger.tscn" type="PackedScene" id=6]
-[ext_resource path="res://characters/enemies/angel/angel.tscn" type="PackedScene" id=7]
-[ext_resource path="res://key/key.tscn" type="PackedScene" id=8]
+[ext_resource path="res://torch/torch.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/enemies/hugger/hugger.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/enemies/angel/angel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://battery/battery.tscn" type="PackedScene" id=7]
+[ext_resource path="res://characters/tapir/tapir.tscn" type="PackedScene" id=8]
+[ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://key/key.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -68,14 +70,10 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 script = ExtResource( 3 )
 _sections_unfolded = [ "Cell", "Occluder", "Transform" ]
 
-[node name="player" parent="." index="1" instance=ExtResource( 4 )]
-
-position = Vector2( 23.9494, 24.0313 )
-scale = Vector2( 0.8, 0.8 )
-
-[node name="goal_area" type="Area2D" parent="." index="2"]
+[node name="goal_area" type="Area2D" parent="." index="1"]
 
 editor/display_folded = true
+visible = false
 position = Vector2( 984, 249 )
 scale = Vector2( 1.4375, 1.28125 )
 input_pickable = true
@@ -90,143 +88,143 @@ audio_bus_name = "Master"
 
 shape = SubResource( 1 )
 
-[node name="torches" type="Node" parent="." index="3"]
+[node name="torches" type="Node" parent="." index="2"]
 
 editor/display_folded = true
 
-[node name="torch12" parent="torches" index="0" instance=ExtResource( 5 )]
+[node name="torch12" parent="torches" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 168, 583 )
 
-[node name="torch13" parent="torches" index="1" instance=ExtResource( 5 )]
+[node name="torch13" parent="torches" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 200, 535 )
 
-[node name="torch4" parent="torches" index="2" instance=ExtResource( 5 )]
+[node name="torch4" parent="torches" index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 88, 119 )
 
-[node name="torch9" parent="torches" index="3" instance=ExtResource( 5 )]
+[node name="torch9" parent="torches" index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 376, 247 )
 
-[node name="torch8" parent="torches" index="4" instance=ExtResource( 5 )]
+[node name="torch8" parent="torches" index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 264, 327 )
 
-[node name="torch7" parent="torches" index="5" instance=ExtResource( 5 )]
+[node name="torch7" parent="torches" index="5" instance=ExtResource( 4 )]
 
 position = Vector2( 232, 167 )
 
-[node name="torch6" parent="torches" index="6" instance=ExtResource( 5 )]
+[node name="torch6" parent="torches" index="6" instance=ExtResource( 4 )]
 
 position = Vector2( 264, 167 )
 
-[node name="torch5" parent="torches" index="7" instance=ExtResource( 5 )]
+[node name="torch5" parent="torches" index="7" instance=ExtResource( 4 )]
 
 position = Vector2( 152, 36.4155 )
 
-[node name="torch3" parent="torches" index="8" instance=ExtResource( 5 )]
+[node name="torch3" parent="torches" index="8" instance=ExtResource( 4 )]
 
 position = Vector2( 120, 391 )
 
-[node name="torch2" parent="torches" index="9" instance=ExtResource( 5 )]
+[node name="torch2" parent="torches" index="9" instance=ExtResource( 4 )]
 
 position = Vector2( 40, 359 )
 
-[node name="torch" parent="torches" index="10" instance=ExtResource( 5 )]
+[node name="torch" parent="torches" index="10" instance=ExtResource( 4 )]
 
 position = Vector2( 56, 295 )
 
-[node name="torch18" parent="torches" index="11" instance=ExtResource( 5 )]
+[node name="torch18" parent="torches" index="11" instance=ExtResource( 4 )]
 
 position = Vector2( 616, 567 )
 
-[node name="torch10" parent="torches" index="12" instance=ExtResource( 5 )]
+[node name="torch10" parent="torches" index="12" instance=ExtResource( 4 )]
 
 position = Vector2( 376, 215 )
 
-[node name="torch14" parent="torches" index="13" instance=ExtResource( 5 )]
+[node name="torch14" parent="torches" index="13" instance=ExtResource( 4 )]
 
 position = Vector2( 392, 423 )
 
-[node name="torch11" parent="torches" index="14" instance=ExtResource( 5 )]
+[node name="torch11" parent="torches" index="14" instance=ExtResource( 4 )]
 
 position = Vector2( 296, 39 )
 
-[node name="torch15" parent="torches" index="15" instance=ExtResource( 5 )]
+[node name="torch15" parent="torches" index="15" instance=ExtResource( 4 )]
 
 position = Vector2( 392, 407 )
 
-[node name="torch16" parent="torches" index="16" instance=ExtResource( 5 )]
+[node name="torch16" parent="torches" index="16" instance=ExtResource( 4 )]
 
 position = Vector2( 648, 87 )
 
-[node name="torch19" parent="torches" index="17" instance=ExtResource( 5 )]
+[node name="torch19" parent="torches" index="17" instance=ExtResource( 4 )]
 
 position = Vector2( 632, 327 )
 
-[node name="torch20" parent="torches" index="18" instance=ExtResource( 5 )]
+[node name="torch20" parent="torches" index="18" instance=ExtResource( 4 )]
 
 position = Vector2( 632.105, 359 )
 
-[node name="torch21" parent="torches" index="19" instance=ExtResource( 5 )]
+[node name="torch21" parent="torches" index="19" instance=ExtResource( 4 )]
 
 position = Vector2( 632, 407 )
 
-[node name="torch22" parent="torches" index="20" instance=ExtResource( 5 )]
+[node name="torch22" parent="torches" index="20" instance=ExtResource( 4 )]
 
 position = Vector2( 632, 439 )
 
-[node name="torch17" parent="torches" index="21" instance=ExtResource( 5 )]
+[node name="torch17" parent="torches" index="21" instance=ExtResource( 4 )]
 
 position = Vector2( 584, 87 )
 
-[node name="torch23" parent="torches" index="22" instance=ExtResource( 5 )]
+[node name="torch23" parent="torches" index="22" instance=ExtResource( 4 )]
 
 position = Vector2( 792, 199 )
 
-[node name="torch26" parent="torches" index="23" instance=ExtResource( 5 )]
+[node name="torch26" parent="torches" index="23" instance=ExtResource( 4 )]
 
 position = Vector2( 968, 567 )
 
-[node name="torch27" parent="torches" index="24" instance=ExtResource( 5 )]
+[node name="torch27" parent="torches" index="24" instance=ExtResource( 4 )]
 
 position = Vector2( 952, 279 )
 
-[node name="torch28" parent="torches" index="25" instance=ExtResource( 5 )]
+[node name="torch28" parent="torches" index="25" instance=ExtResource( 4 )]
 
 position = Vector2( 984, 279 )
 
-[node name="torch29" parent="torches" index="26" instance=ExtResource( 5 )]
+[node name="torch29" parent="torches" index="26" instance=ExtResource( 4 )]
 
 position = Vector2( 1016, 279 )
 
-[node name="torch30" parent="torches" index="27" instance=ExtResource( 5 )]
+[node name="torch30" parent="torches" index="27" instance=ExtResource( 4 )]
 
 position = Vector2( 952, 215 )
 
-[node name="torch31" parent="torches" index="28" instance=ExtResource( 5 )]
+[node name="torch31" parent="torches" index="28" instance=ExtResource( 4 )]
 
 position = Vector2( 1016, 215 )
 
-[node name="torch32" parent="torches" index="29" instance=ExtResource( 5 )]
+[node name="torch32" parent="torches" index="29" instance=ExtResource( 4 )]
 
 position = Vector2( 984, 215 )
 
-[node name="torch25" parent="torches" index="30" instance=ExtResource( 5 )]
+[node name="torch25" parent="torches" index="30" instance=ExtResource( 4 )]
 
 position = Vector2( 840, 295 )
 
-[node name="torch33" parent="torches" index="31" instance=ExtResource( 5 )]
+[node name="torch33" parent="torches" index="31" instance=ExtResource( 4 )]
 
 position = Vector2( 840, 375 )
 
-[node name="torch24" parent="torches" index="32" instance=ExtResource( 5 )]
+[node name="torch24" parent="torches" index="32" instance=ExtResource( 4 )]
 
 position = Vector2( 712, 311 )
 
-[node name="enemies" type="Node" parent="." index="4"]
+[node name="enemies" type="Node" parent="." index="3"]
 
 editor/display_folded = true
 
@@ -236,12 +234,12 @@ editor/display_folded = true
 position = Vector2( 153.52, 104.242 )
 curve = SubResource( 2 )
 
-[node name="hugger" parent="enemies/hugger_path" index="0" instance=ExtResource( 6 )]
+[node name="hugger" parent="enemies/hugger_path" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 60.2153, 0 )
 rotation = 3.08738
 
-[node name="angel" parent="enemies" index="1" instance=ExtResource( 7 )]
+[node name="angel" parent="enemies" index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 78.8867, 239.461 )
 
@@ -251,12 +249,12 @@ editor/display_folded = true
 position = Vector2( 71.7394, 488.687 )
 curve = SubResource( 3 )
 
-[node name="hugger" parent="enemies/hugger_path2" index="0" instance=ExtResource( 6 )]
+[node name="hugger" parent="enemies/hugger_path2" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 0.466782, 0.933563 )
 rotation = -3.14159
 
-[node name="angel2" parent="enemies" index="3" instance=ExtResource( 7 )]
+[node name="angel2" parent="enemies" index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 200.579, 243.73 )
 
@@ -265,28 +263,269 @@ position = Vector2( 200.579, 243.73 )
 editor/display_folded = true
 curve = SubResource( 4 )
 
-[node name="hugger" parent="enemies/hugger_path3" index="0" instance=ExtResource( 6 )]
+[node name="hugger" parent="enemies/hugger_path3" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 439.28, 563.776 )
-rotation = 0.0175578
+rotation = 0.0175423
 
 [node name="hugger_path4" type="Path2D" parent="enemies" index="5"]
 
 curve = SubResource( 5 )
 
-[node name="hugger" parent="enemies/hugger_path4" index="0" instance=ExtResource( 6 )]
+[node name="hugger" parent="enemies/hugger_path4" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 152.203, 24.6941 )
-rotation = -4.86026e-07
+rotation = 0.0
 
-[node name="key" parent="." index="5" instance=ExtResource( 8 )]
+[node name="angel3" parent="enemies" index="6" instance=ExtResource( 6 )]
 
+position = Vector2( 863.377, 33.3948 )
+
+[node name="angel4" parent="enemies" index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 806.361, 554.679 )
+
+[node name="angel5" parent="enemies" index="8" instance=ExtResource( 6 )]
+
+position = Vector2( 505.808, 516.397 )
+
+[node name="angel6" parent="enemies" index="9" instance=ExtResource( 6 )]
+
+position = Vector2( 188.919, 481.485 )
+
+[node name="angel7" parent="enemies" index="10" instance=ExtResource( 6 )]
+
+position = Vector2( 557.935, 291.096 )
+
+[node name="angel8" parent="enemies" index="11" instance=ExtResource( 6 )]
+
+position = Vector2( 382.983, 317.56 )
+
+[node name="angel9" parent="enemies" index="12" instance=ExtResource( 6 )]
+
+position = Vector2( 121.29, 376.367 )
+
+[node name="angel10" parent="enemies" index="13" instance=ExtResource( 6 )]
+
+position = Vector2( 72.3534, 296.762 )
+
+[node name="angel11" parent="enemies" index="14" instance=ExtResource( 6 )]
+
+position = Vector2( 480.187, 23.9495 )
+
+[node name="angel12" parent="enemies" index="15" instance=ExtResource( 6 )]
+
+position = Vector2( 600.533, 155.073 )
+
+[node name="angel13" parent="enemies" index="16" instance=ExtResource( 6 )]
+
+position = Vector2( 263.444, 202.972 )
+
+[node name="angel14" parent="enemies" index="17" instance=ExtResource( 6 )]
+
+position = Vector2( 747, 57 )
+
+[node name="angel15" parent="enemies" index="18" instance=ExtResource( 6 )]
+
+position = Vector2( 951, 329 )
+
+[node name="angel16" parent="enemies" index="19" instance=ExtResource( 6 )]
+
+position = Vector2( 688, 232 )
+
+[node name="angel17" parent="enemies" index="20" instance=ExtResource( 6 )]
+
+position = Vector2( 1001, 182 )
+
+[node name="angel18" parent="enemies" index="21" instance=ExtResource( 6 )]
+
+position = Vector2( 831, 209 )
+
+[node name="items" type="Node" parent="." index="4"]
+
+[node name="battery" parent="items" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( 59.8487, 216.775 )
+
+[node name="battery2" parent="items" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 102.167, 217.602 )
+
+[node name="battery3" parent="items" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( 100.177, 262.715 )
+
+[node name="battery4" parent="items" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( 58.4411, 265.353 )
+
+[node name="battery5" parent="items" index="4" instance=ExtResource( 7 )]
+
+position = Vector2( 76.8381, 56.7577 )
+
+[node name="battery6" parent="items" index="5" instance=ExtResource( 7 )]
+
+position = Vector2( 753.463, 89.7507 )
+
+[node name="battery7" parent="items" index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 934.072, 72.0222 )
+
+[node name="battery8" parent="items" index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 693.629, 407.756 )
+
+[node name="battery9" parent="items" index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 380.055, 567.313 )
+
+[node name="battery10" parent="items" index="9" instance=ExtResource( 7 )]
+
+position = Vector2( 104.155, 521.884 )
+
+[node name="battery11" parent="items" index="10" instance=ExtResource( 7 )]
+
+position = Vector2( 519.458, 326.403 )
+
+[node name="battery12" parent="items" index="11" instance=ExtResource( 7 )]
+
+position = Vector2( 287.261, 123.396 )
+
+[node name="battery13" parent="items" index="12" instance=ExtResource( 7 )]
+
+position = Vector2( 704.553, 85.5812 )
+
+[node name="battery14" parent="items" index="13" instance=ExtResource( 7 )]
+
+position = Vector2( 463.068, 25.21 )
+
+[node name="battery15" parent="items" index="14" instance=ExtResource( 7 )]
+
+position = Vector2( 848.754, 456.51 )
+
+[node name="battery16" parent="items" index="15" instance=ExtResource( 7 )]
+
+position = Vector2( 754.571, 25.4848 )
+
+[node name="battery17" parent="items" index="16" instance=ExtResource( 7 )]
+
+position = Vector2( 257.064, 408.864 )
+
+[node name="battery18" parent="items" index="17" instance=ExtResource( 7 )]
+
+position = Vector2( 921.482, 325.729 )
+
+[node name="battery19" parent="items" index="18" instance=ExtResource( 7 )]
+
+position = Vector2( 553.05, 504.179 )
+
+[node name="battery20" parent="items" index="19" instance=ExtResource( 7 )]
+
+position = Vector2( 914, 216 )
+
+[node name="battery21" parent="items" index="20" instance=ExtResource( 7 )]
+
+position = Vector2( 872, 215 )
+
+[node name="battery22" parent="items" index="21" instance=ExtResource( 7 )]
+
+position = Vector2( 840, 35 )
+
+[node name="battery23" parent="items" index="22" instance=ExtResource( 7 )]
+
+position = Vector2( 206, 501 )
+
+[node name="tapirs" type="Node" parent="." index="5"]
+
+editor/display_folded = true
+
+[node name="tapir" parent="tapirs" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 164.661, 254.342 )
+
+[node name="tapir2" parent="tapirs" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 580, 57 )
+
+[node name="tapir3" parent="tapirs" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 644, 57 )
+
+[node name="tapir4" parent="tapirs" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 746.814, 145.152 )
+
+[node name="tapir5" parent="tapirs" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 614.958, 258.172 )
+
+[node name="tapir6" parent="tapirs" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 365.651, 409.972 )
+
+[node name="tapir7" parent="tapirs" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 48.7534, 176.177 )
+
+[node name="tapir8" parent="tapirs" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 366.759, 17.7285 )
+
+[node name="tapir9" parent="tapirs" index="8" instance=ExtResource( 8 )]
+
+position = Vector2( 689.197, 336.842 )
+
+[node name="tapir10" parent="tapirs" index="9" instance=ExtResource( 8 )]
+
+position = Vector2( 876.454, 340.166 )
+
+[node name="tapir11" parent="tapirs" index="10" instance=ExtResource( 8 )]
+
+position = Vector2( 537.396, 403.324 )
+
+[node name="tapir12" parent="tapirs" index="11" instance=ExtResource( 8 )]
+
+position = Vector2( 131.856, 554.017 )
+
+[node name="tapir13" parent="tapirs" index="12" instance=ExtResource( 8 )]
+
+position = Vector2( 997.23, 60.9418 )
+
+[node name="tapir14" parent="tapirs" index="13" instance=ExtResource( 8 )]
+
+position = Vector2( 501.939, 158.449 )
+
+[node name="tapir15" parent="tapirs" index="14" instance=ExtResource( 8 )]
+
+position = Vector2( 308.033, 488.643 )
+
+[node name="tapir18" parent="tapirs" index="15" instance=ExtResource( 8 )]
+
+position = Vector2( 701.385, 57.6177 )
+
+[node name="tapir19" parent="tapirs" index="16" instance=ExtResource( 8 )]
+
+position = Vector2( 963.989, 458.726 )
+
+[node name="tapir" parent="tapirs/tapir19" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( -95.8087, 89.9252 )
+
+[node name="player" parent="." index="6" instance=ExtResource( 9 )]
+
+visible = false
+position = Vector2( 23.9494, 24.0313 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="key" parent="." index="7" instance=ExtResource( 10 )]
+
+visible = false
 position = Vector2( 88.3293, 56.2732 )
 scale = Vector2( 0.8, 0.8 )
 _sections_unfolded = [ "Pause", "Transform" ]
 
-[connection signal="hit" from="player" to="." method="_on_player_hit"]
-
 [connection signal="body_entered" from="goal_area" to="." method="_on_goal_area_body_entered"]
+
+[connection signal="hit" from="player" to="." method="_on_player_hit"]
 
 
