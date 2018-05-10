@@ -1,12 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://CanvasModulate.gd" type="Script" id=2]
 [ext_resource path="res://music.gd" type="Script" id=3]
 [ext_resource path="res://lightning/lightning.tscn" type="PackedScene" id=4]
-[ext_resource path="res://maze.tscn" type="PackedScene" id=5]
 
-[node name="game" type="Node" index="0"]
+[node name="game" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -28,8 +27,6 @@ script = ExtResource( 3 )
 
 position = Vector2( 96.7276, 72.1511 )
 
-[node name="Navigation2D" type="Navigation2D" parent="." index="3"]
-
-[node name="level" parent="Navigation2D" index="0" instance=ExtResource( 5 )]
+[node name="level_navigation" type="Navigation2D" parent="." index="3"]
 
 
