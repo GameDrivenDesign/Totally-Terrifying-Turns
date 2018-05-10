@@ -123,7 +123,6 @@ _sections_unfolded = [ "Cell", "Occluder", "Transform" ]
 
 [node name="goal_area" type="Area2D" parent="." index="1"]
 
-visible = false
 position = Vector2( 984, 249 )
 scale = Vector2( 1.4375, 1.28125 )
 input_pickable = true
@@ -136,13 +135,11 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="goal_area" index="0"]
 
-visible = false
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Particles2D" type="Particles2D" parent="goal_area" index="1"]
 
-visible = false
 emitting = true
 amount = 20
 lifetime = 4.0
@@ -301,6 +298,8 @@ position = Vector2( 712, 311 )
 
 [node name="enemies" type="Node" parent="." index="3"]
 
+editor/display_folded = true
+
 [node name="hugger_path" type="Path2D" parent="enemies" index="0"]
 
 editor/display_folded = true
@@ -416,6 +415,8 @@ position = Vector2( 831, 209 )
 
 [node name="items" type="Node" parent="." index="4"]
 
+editor/display_folded = true
+
 [node name="battery" parent="items" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 59.8487, 216.775 )
@@ -426,7 +427,6 @@ position = Vector2( 102.167, 217.602 )
 
 [node name="battery3" parent="items" index="2" instance=ExtResource( 7 )]
 
-visible = false
 position = Vector2( 100.177, 262.715 )
 
 [node name="battery4" parent="items" index="3" instance=ExtResource( 7 )]
@@ -511,6 +511,8 @@ position = Vector2( 206, 501 )
 
 [node name="tapirs" type="Node" parent="." index="5"]
 
+editor/display_folded = true
+
 [node name="tapir" parent="tapirs" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 164.661, 254.342 )
@@ -585,13 +587,11 @@ position = Vector2( -95.8087, 89.9252 )
 
 [node name="player" parent="." index="6" instance=ExtResource( 9 )]
 
-visible = false
 position = Vector2( 23.9494, 24.0313 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="key" parent="." index="7" instance=ExtResource( 10 )]
 
-visible = false
 position = Vector2( 88.3293, 56.2732 )
 scale = Vector2( 0.8, 0.8 )
 _sections_unfolded = [ "Pause", "Transform" ]
