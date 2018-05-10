@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://game.gd" type="Script" id=1]
+[ext_resource path="res://levels/level.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/basic_tileset.tres" type="TileSet" id=2]
-[ext_resource path="res://maze.gd" type="Script" id=3]
+[ext_resource path="res://levels/maze.gd" type="Script" id=3]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://torch/torch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/enemies/hugger/hugger.tscn" type="PackedScene" id=6]
@@ -226,11 +226,6 @@ position = Vector2( 840, 375 )
 
 position = Vector2( 712, 311 )
 
-[node name="key" parent="." index="4" instance=ExtResource( 8 )]
-
-position = Vector2( 88.3293, 56.2732 )
-scale = Vector2( 0.8, 0.8 )
-_sections_unfolded = [ "Pause", "Transform" ]
 [node name="enemies" type="Node" parent="." index="4"]
 
 editor/display_folded = true
@@ -259,6 +254,7 @@ curve = SubResource( 3 )
 [node name="hugger" parent="enemies/hugger_path2" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 0.466782, 0.933563 )
+rotation = -3.14159
 
 [node name="angel2" parent="enemies" index="3" instance=ExtResource( 7 )]
 
@@ -272,7 +268,7 @@ curve = SubResource( 4 )
 [node name="hugger" parent="enemies/hugger_path3" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 439.28, 563.776 )
-rotation = 0.0175426
+rotation = 0.0175578
 
 [node name="hugger_path4" type="Path2D" parent="enemies" index="5"]
 
@@ -281,7 +277,13 @@ curve = SubResource( 5 )
 [node name="hugger" parent="enemies/hugger_path4" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 152.203, 24.6941 )
-rotation = 0.0
+rotation = -4.86026e-07
+
+[node name="key" parent="." index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 88.3293, 56.2732 )
+scale = Vector2( 0.8, 0.8 )
+_sections_unfolded = [ "Pause", "Transform" ]
 
 [connection signal="hit" from="player" to="." method="_on_player_hit"]
 
