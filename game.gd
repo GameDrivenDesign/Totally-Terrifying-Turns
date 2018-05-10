@@ -6,5 +6,10 @@ func _ready():
 func _on_player_lose():
 	start_gameoverscreen()
 
-func _on_player_win():
-	start_winscreen()
+func _on_player_win(level_name):
+	if level_name == "level_1":
+		start_level("level_2")
+	elif level_name == "level_2":
+		start_winscreen()
+	else:
+		print("Invalid level name %s" % level_name)

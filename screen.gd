@@ -7,7 +7,8 @@ func start_scene(scenePath):
 	self.queue_free()
 	return currentScene
 
-func start_game(level):
+func start_level(level_name):
+	var level = load("res://levels/%s.tscn" % level_name).instance()
 	var game_scene = start_scene("res://game.tscn")
 	game_scene.get_node("level_navigation").add_child(level)
 	level.connect("player_win", game_scene, "_on_player_win")

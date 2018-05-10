@@ -8,4 +8,4 @@ func _on_player_hit():
 
 func _on_goal_area_body_entered(body):
 	if body.is_in_group("players"):
-		emit_signal("player_win")
+		emit_signal("player_win", self.name)
