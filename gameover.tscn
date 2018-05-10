@@ -4,7 +4,7 @@
 [ext_resource path="res://fonts/pixel_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://sound_effects/death_scream.wav" type="AudioStream" id=3]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -87,7 +87,7 @@ _sections_unfolded = [ "custom_fonts" ]
 position = Vector2( 516.091, 297.067 )
 stream = ExtResource( 3 )
 volume_db = -8.0
-autoplay = false
+autoplay = true
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
