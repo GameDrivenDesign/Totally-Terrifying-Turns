@@ -1,9 +1,7 @@
-extends "res://level.gd"
+extends "res://screen.gd"
 
-func _on_player_hit():
+func _on_player_lose():
 	start_gameoverscreen()
 
-
-func _on_goal_area_body_entered(body):
-	if body.is_in_group("players"):
-		start_winscreen()
+func _on_player_win():
+	start_winscreen()

@@ -10,6 +10,8 @@ func start_scene(scenePath):
 func start_game(level):
 	var game_scene = start_scene("res://game.tscn")
 	game_scene.get_node("level_navigation").add_child(level)
+	level.connect("player_win", game_scene, "_on_player_win")
+	level.connect("player_lose", game_scene, "_on_player_lose")
 
 func start_intro():
 	start_scene("res://intro/intro.tscn")

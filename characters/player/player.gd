@@ -87,7 +87,6 @@ func is_something_in_between(pos1, pos2):
 	
 func pick_up_key():
 	keys = keys + 1
-	print(keys)
 
 func _on_flashlight_area_body_entered(body):
 	if body.is_in_group("enemy_flashlight_collider"):
