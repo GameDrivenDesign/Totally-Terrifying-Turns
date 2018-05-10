@@ -14,7 +14,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
-		start_level("level_1")
+		start_game("level_1")
 
 func _on_start_timer_timeout():
 	intro_player.animation_set_next("typing", "typing_enter")
