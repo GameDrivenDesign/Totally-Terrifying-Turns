@@ -37,11 +37,12 @@ func _process(delta):
 	
 	if battery_on:
 		battery_status -= delta * BATTERY_USAGE
+		
 		if battery_status <= 0.0:
 			battery_status = 0.0
 			toggle_battery()
-	
-	$hud/battery_status_label.text = "power left: " + String(int(battery_status * 10 + 0.5) * 10) + "%"
+		
+		$hud/battery_status_label.text = "power left: " + String(ceil(battery_status * 10) * 10) + "%"
 	
 func _physics_process(delta):
 	var direction = Vector2()

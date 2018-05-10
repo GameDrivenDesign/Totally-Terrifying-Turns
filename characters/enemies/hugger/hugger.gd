@@ -20,7 +20,6 @@ var followed_player = null
 var time_to_follow = 0.0
 
 func _ready():
-	set_physics_process(true)
 	path_length = get_parent().get_parent().curve.get_baked_length()
 
 func on_entered_light(player):
