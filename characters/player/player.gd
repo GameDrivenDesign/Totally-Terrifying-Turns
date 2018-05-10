@@ -25,6 +25,13 @@ func _ready():
 		set_collision_layer_bit(1, false)
 	$flashlight_animation_player.play("flickering")
 
+func _input(event):
+	if event.is_action_pressed("toggle_godmode"):
+		toggle_godmode()
+	
+	if event.is_action_pressed("toggle_flashlight") and time_till_flashlight_toggleable <= 0 and battery_status > 0.0:
+		toggle_battery()
+
 func _process(delta):
 	time_till_flashlight_toggleable -= delta
 	
@@ -33,10 +40,12 @@ func _process(delta):
 		if battery_status <= 0.0:
 			battery_status = 0.0
 			toggle_battery()
-		
+	
 	$hud/battery_status_label.text = "power left: " + String(int(battery_status * 10 + 0.5) * 10) + "%"
 	
+func _physics_process(delta):
 	var direction = Vector2()
+	
 	if(Input.is_action_pressed("move_left")):
 		rotation_degrees = 180
 		direction = Vector2(-speed, 0)
@@ -50,27 +59,18 @@ func _process(delta):
 		rotation_degrees = 270
 		direction = Vector2(0, -speed)
 	
-	if Input.is_action_just_pressed("toggle_godmode"):
-		toggle_godmode()
-	
-	if Input.is_action_just_pressed("toggle_flashlight") and time_till_flashlight_toggleable <= 0:
-		#$flashlight/audio_player.play()
-		if battery_status > 0.0:
-			toggle_battery()
-		
 	var distance = speed * delta * direction
 	if(is_in_godmode):
 		translate(distance)
 	else:
 		move_and_collide(distance)
 	
-func _physics_process(delta):
 	if $flashlight.enabled:
 		for enemy in enemies_in_flashlight_area:
 			if not is_something_in_between(global_position, enemy.global_position):
-				enemy.on_entered_light(self)	
+				enemy.on_entered_light(self)
 		
-	
+
 func is_something_in_between(pos1, pos2):
 	var space_state = get_world_2d().direct_space_state
 	var intersection = space_state.intersect_ray(pos1, pos2, [self, $flashlight/area/shape, $flashlight/area, $hitbox, $hitbox/CollisionShape2D])
