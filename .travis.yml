@@ -2,14 +2,13 @@ services:
 - docker
 
 env:
-  # Use this to set your game's name. It is being used
+  # Use GAME_NAME to set your game's name. It is being used
   # throughout this file for naming exported artifacts.
   # This will, for example, create an "Awesome Game.exe"
-  - GAME_NAME="Totally Terrifying Turns"
-  # Set the Godot version you want to use here. Supported Godot versions can be
+  # Also set the Godot version you want to use here. Supported Godot versions can be
   # found here: https://cloud.docker.com/u/gamedrivendesign/repository/docker/gamedrivendesign/godot-export/tags
   # If your version is not available, please open an issue here: https://github.com/GameDrivenDesign/docker-godot-export
-  - GODOT_VERSION="3.0.2"
+  - GAME_NAME="Totally Terrifying Turns" GODOT_VERSION="3.0.2"
 
 install:
 - docker pull gamedrivendesign/godot-export
